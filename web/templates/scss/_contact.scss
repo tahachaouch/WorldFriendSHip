@@ -1,0 +1,139 @@
+/* Address area css
+============================================================================================ */
+.address_details{
+    padding: 80px 0px;
+    .address_item{
+        text-align: center;
+        img{
+            max-width: 100%;
+        }
+        h3{
+            font-size: 22px;
+            font-family: $ub;
+            font-weight: 500;
+            color: $dip;
+            padding: 20px 0px 5px 0px;
+        }
+        h4{
+            font-size: 16px;
+            color: $pfont;
+            font-family: $ub;
+            font-weight: 300;
+            line-height: 24px;
+        }
+    }
+}
+/* Address area css
+============================================================================================ */
+
+/* Contact area css
+============================================================================================ */
+.contact_form_area{
+    padding: 80px 0px;
+    .welcome_title{
+        padding-bottom: 45px;
+    }
+    .form_inner{
+        .form-group{
+            margin-bottom: 30px;
+            input{
+                background: #f4f4f4;
+                border: 1px solid #f4f4f4;
+                height: 48px;
+                box-shadow: none;
+                border-radius: 5px;
+                font-size: 16px;
+                font-size: 16px;
+                color: $pfont;
+                font-family: $ub;
+                font-weight: 500;
+                padding: 0px 20px 0px 30px;
+                outline: none !important;
+                box-shadow: none !important;
+                @include placeholder{
+                    font-size: 16px;
+                    color: $pfont;
+                    font-family: $ub;
+                    font-weight: 500;
+                }
+                &:focus{
+                    border-color: $baseColor;
+                }
+            }
+            textarea{
+                background: #f4f4f4;
+                border: 1px solid #f4f4f4;
+                height: 204px;
+                box-shadow: none;
+                border-radius: 5px;
+                font-size: 16px;
+                font-size: 16px;
+                color: $pfont;
+                font-family: $ub;
+                font-weight: 500;
+                padding: 15px 20px 0px 30px;
+                width: 100%;
+                resize: none;
+                outline: none !important;
+                box-shadow: none !important;
+                @include placeholder{
+                    font-size: 16px;
+                    color: $pfont;
+                    font-family: $ub;
+                    font-weight: 500;
+                }
+                &:focus{
+                    border-color: $baseColor;
+                }
+            }
+            &:last-child{
+                margin-bottom: 0px;
+            }
+            .login_btn{
+                float: right;
+                margin-top: 28px;
+            }
+        }
+    }
+}
+/* End Contact area css
+============================================================================================ */
+
+/* Error area css
+============================================================================================ */
+.error_area{
+    text-align: center;
+    background: url(../img/Error-bg.png) no-repeat scroll center center;
+    background-size: cover;
+    padding: 80px 0px;
+    .error_text{
+        h6{
+            font-size: 30px;
+            font-family: $ub;
+            font-weight: bold;
+            color: $dip;
+        }
+        h3{
+            font-size: 300px;
+            font-family: $ub;
+            font-weight: bold;
+            color: $dip;
+            line-height: 250px;
+        }
+        h5{
+            font-size: 30px;
+            font-family: $ub;
+            font-weight: bold;
+            color: $dip;
+            padding-bottom: 40px;
+            padding-top: 15px;
+        }
+        .register_angkar_btn{
+            display: inline-block;
+            width: 200px;
+            margin-bottom: 45px;
+        }
+    }
+}
+/* End Error area css
+============================================================================================ */

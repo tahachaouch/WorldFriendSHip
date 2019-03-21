@@ -1,0 +1,90 @@
+/* Video area css
+============================================================================================ */
+.video_area{
+    .video_row{
+        position: relative;
+        height: 570px;
+        overflow: hidden;
+        
+        iframe{
+            width: 100%;
+            min-height: 700px;
+            border: none;
+        }
+        .overlay{
+            .overlay_bg{
+                background: url(../img/video_bg.jpg) no-repeat;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                opacity: 1;
+                transition: all 400ms linear 0s;
+                &:before{
+                    content: '';
+                    background: rgba(46, 60, 67, .85);
+                    position: absolute;
+                    left: 0px;
+                    top: 0px;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .play_pause{
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100%;
+                text-align: center;
+                i{
+                    color: #fff;
+                    font-size: 36px;
+                    cursor: pointer;
+                }
+                .fa-play{
+                    height: 100px;
+                    width: 100px;
+                    border: 8px solid #818384;
+                    border-radius: 50%;
+                    background: $baseColor;
+                    line-height: 84px;
+                    
+                }
+                #play_btn{}
+                #pause_btn{
+                    display: none;
+                }
+                .video_content{
+                    h4{
+                        color: #fff;
+                        font-size: 30px;
+                        line-height: 48px;
+                        font-family: $ub;
+                        font-weight: bold;
+                        margin-top: 45px; 
+                    }
+                    h5{
+                        color: $baseColor;
+                        font-size: 30px; 
+                        letter-spacing: 12px;
+                        font-family: "ralH";
+                        padding-top: 10px;
+                    }
+                }
+            }
+            &.playing{
+                .overlay_bg{
+                    display: none;
+                }
+                .video_content{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+/* End Video area css
+============================================================================================ */

@@ -1,0 +1,100 @@
+/* Testimonials area css
+============================================================================================ */
+.testimonials_area{
+    padding: 80px 0px 75px 0px;
+    .welcome_title{
+        padding-bottom: 45px;
+    }
+    .testimonials_slider{
+        position: relative;
+        z-index: 3;
+        &:before{
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: -30px;
+            background: url(../img/testimonials-quoto.png) no-repeat scroll center center;
+            width: 118px;
+            height: 103px;
+            z-index: -1;
+        }
+        .test_left_content{
+            border: 2px solid #e0e0e0;
+            padding: 30px 26px 30px 26px;
+            p{
+                font-family: $ub;
+                line-height: 24px;
+                color: $pfont;
+                font-size: 16px;
+                span{
+                    font-weight: 500;
+                }
+            }
+        }
+        .test_man{
+            max-width: 170px;
+            float: right;
+            text-align: center;
+            position: relative;
+            &:before{
+                content: '';
+                height: 2px;
+                background: #e0e0e0;
+                width: 133px;
+                position: absolute;
+                left: -125px;
+                top: 41%;
+                transform: translateY(-50%);
+            }
+            img{
+                width: auto;
+            }
+            h4{
+                font-size: 16px;
+                color: $dip;
+                font-weight: bold;
+                font-family: $ub;
+                padding: 15px 0px 6px 0px;
+            }
+            h5{
+                font-family: $ub;
+                color: $pfont;
+                font-size: 16px;
+            }
+        }
+        .owl-controls{
+            position: absolute;
+            right: 330px;
+            bottom: 30px;
+            .owl-dots{
+                display: none !important;
+            }
+            .owl-nav{
+                .owl-prev{
+                    border-top-left-radius: 15px;
+                    border-bottom-left-radius: 15px;
+                }
+                .owl-next{
+                    border-top-right-radius: 15px;
+                    border-bottom-right-radius: 15px;
+                }
+                .owl-prev, .owl-next{
+                    display: inline-block;
+                    width: 30px;
+                    height: 30px;
+                    background: $dip;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 30px;
+                    @include transition;
+                    &:hover{
+                        background: $baseColor;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Testimonials area css
+============================================================================================ */
