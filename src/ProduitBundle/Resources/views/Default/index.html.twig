@@ -1,0 +1,147 @@
+<script>
+    $(document).ready(function() {
+        $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+        $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+    });
+</script>
+<style>
+    form{
+        margin-left:150px;
+    }
+
+    h1
+    {
+        text-align: center;
+        color: midnightblue;
+        font-style: normal;
+        padding-top: 50px;
+        font-weight: normal;
+    }
+
+    .column {
+
+        flex: 33.33%;
+        padding: 5px;
+    }
+
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .row {
+        display: block;
+        clear: both;
+
+    }
+    .glyphicon { margin-right:5px; }
+    .thumbnail
+    {
+        margin-bottom: 20px;
+        padding: 0px;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        float: none;
+
+    }
+
+    .list-group-item
+    {
+        float: none;
+        width: 100%;
+        background-color: #fff;
+        margin-bottom: 10px;
+        display: table;
+    }
+    .list-group-item:nth-of-type(odd):hover,list-group-item:hover
+    {
+        background: #428bca;
+    }
+
+    .item.list-group-item list-group-image
+    {
+        margin-right: 10px;
+    }
+    .item.list-group-item .thumbnail
+    {
+        margin-bottom: 0px;
+    }
+    .item.list-group-item .caption
+    {
+        padding: 9px 9px 0px 9px;
+    }
+    .list-group-item:nth-of-type(odd)
+    {
+        background: #eeeeee;
+    }
+
+    .list-group-item:before, .list-group-item:after
+    {
+        display: table;
+        content: " ";
+    }
+
+    .item.list-group-item img
+    {
+        float: none;
+    }
+    .list-group-item:after
+    {
+        clear: both;
+    }
+    .list-group-item-text
+    {
+        margin: 0 0 11px;
+    }
+
+</style>
+<h1>Liste des produits</h1>
+<form method="POST">
+    <input type="text" name="libelle">
+    <input type="submit" name="submit", value="recherche" class="btn-default">
+</form>
+<div class="container">
+
+    <div class="well well-sm">
+        <strong>Display</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                        class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+
+    <div id="products" class="row list-group">
+        {% for produit in produits %}
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <div class="row">
+                        <div class="column">
+                            <img src="{{ asset('uploads/images/' ~ produit.image) }}" style="width:250px ; height:250px">
+                        </div>
+                    </div>
+
+                    <div class="
+">
+                        <h3 class="group inner list-group-item-heading">{{ produit.nomProd }}</h3>
+                        <p class="group inner list-group-item-text">{{ produit.description }}</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">$ {{ produit.prix }}</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-info" href="{{ path('produit_edit',{'id':produit.id}) }}">edit</a>
+                                <a class="btn btn-danger" href="{{ path('produit_delete',{'id':produit.id}) }}">delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination_area">
+        {{ knp_pagination_render(produits) }}
+    </div>
+
+</div>

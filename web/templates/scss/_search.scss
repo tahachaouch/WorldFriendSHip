@@ -1,0 +1,413 @@
+/* Advanced Search area css
+============================================================================================ */
+.advanced_search_area{
+    background: #2e3c43;
+    padding: 80px 0px 50px 0px;
+    .welcome_white_title{
+        padding-bottom: 35px;
+    }
+    &.search_area2{
+        background: #fff;
+        overflow: hidden;
+        .welcome_title{
+            padding-bottom: 45px;
+        }
+        .search_option{
+            padding-bottom: 30px;
+            .tab-content{
+                .tab-pane{
+                    .height_item{
+                        .bootstrap-select{
+                            margin-right: 18px;
+                            &:last-child{
+                                margin-right: 0px;
+                            }
+                        }
+                        h4{
+                            color: $pfont;
+                            padding-left: 0px;
+                            padding-right: 18px;
+                        }
+                        .bootstrap-select{
+                            .dropdown-toggle{
+                                background: #f4f4f4;
+                                border: 1px solid #f4f4f4;
+                            }
+                        }
+                        &:nth-child(2){
+                            padding-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+        .search_distance{
+            .skill_item{
+                h4{
+                    font-size: 16px;
+                    color: $pfont;
+                    font-family: $ub;
+                    padding-bottom: 22px;
+                }
+                .skill_inner{
+                    width: 100%;
+                    height: 2px;
+                    background: #e0e0e0;
+                    position: relative;
+                    .progress-bar{
+                        height: 2px;
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        background: $baseColor;
+                        color: $pfont;
+                        &:before{
+                            content: "";
+                            background: $baseColor;
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            position: absolute;
+                            right: -6px;
+                            top: -6px;
+                        }
+                        a{
+                            line-height: 22px;
+                            text-align: center;
+                            color: #fff;
+                            text-align: center;
+                            background: $baseColor;
+                            padding: 0px 4px;
+                            font-size: 12px;
+                            font-family: $ub;
+                            border-radius: 3px;
+                            position: absolute;
+                            right: -20px;
+                            top: -37px;
+                            &:before{
+                                content: "";
+                                width: 0;
+                                height: 0;
+                                border-style: solid;
+                                border-width: 4px 3.5px 0 3.5px;
+                                border-color: $baseColor transparent transparent transparent;
+                                position: absolute;
+                                bottom: -4px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+                        }
+                    }
+                }
+                h5{
+                    display: inline-block;
+                    font-size: 12px;
+                    color: $pfont;
+                    font-family: $ub;
+                    padding-top: 10px;
+                }
+                h6{
+                    float: right;
+                    display: inline-block;
+                    font-size: 12px;
+                    color: $pfont;
+                    font-family: $ub;
+                    padding-top: 10px;
+                }
+            }
+        }
+        .creat_account{
+            display: inline-block;
+            width: auto;
+            vertical-align: middle;
+            margin-top: 15px;
+            label{
+                color: $dip;
+            }
+            .check{
+                background: $baseColor;
+                border: none;
+                &:before{
+                    color: #fff;
+                    top: 5px;
+                    left: 5px;
+                }
+            }
+        }
+        .distance_right{
+            vertical-align: middle;
+            .register_angkar_btn{
+                display: inline-block;
+            }
+        }
+        .range_count{
+            padding-top: 0px;
+            margin-top: -3px;
+        }
+    }
+}
+.search_option{
+    .nav.nav-tabs{
+        max-width: 830px;
+        margin: 0 auto 40px;
+        padding: 0px 50px;
+        li{
+            margin-right: 45px;
+            a{
+                border: none;
+                padding: 0px;
+                border-radius: 0px;
+                background: transparent;
+                font-size: 16px;
+                font-family: $ub;
+                color: #fff;
+                line-height: 40px;
+                position: relative;
+                &:before{
+                    content: "";
+                    width: 100%;
+                    background: $baseColor;
+                    height: 2px;
+                    position: absolute;
+                    left: 0px;
+                    bottom: 0px;
+                    opacity: 0;
+                    @include transition;
+                }
+            }
+            &.active{
+                a{
+                    &:before{
+                        opacity: 1;
+                    }
+                }
+            }
+            &:last-child{
+                margin-right: 0px;
+            }
+        }
+    }
+    .tab-content{
+        .tab-pane{
+            color: #fff;
+            .height_item{
+                display: inline-block;
+                vertical-align: middle;
+                h4{
+                    display: inline-block;
+                    font-size: 18px;
+                    font-family: $ub;
+                    padding-left: 40px;
+                    padding-right: 20px;
+                }
+                .bootstrap-select{
+                    width: 160px;
+                    position: relative;
+                    margin-right: 25px;
+                    &:before{
+                        content: "";
+                        background: #fff;
+                        width: 10px;
+                        height: 1px;
+                        position: absolute;
+                        right: -18px;
+                        top: 50%;
+                    }
+                    .dropdown-toggle{
+                        padding: 0px 20px;
+                        border-radius: 24px;
+                        outline: none !important;
+                        box-shadow: none;
+                        .filter-option{
+                            line-height: 48px;
+                            font-size: 16px;
+                            color: $pfont;
+                            font-family: $ub;
+                            font-weight: 500;
+                        }
+                        .bs-caret{
+                            position: relative;
+                            .caret{
+                                display: none;
+                            }
+                            &:before{
+                                content: "\f0dc";
+                                font: normal normal normal 14px/1 FontAwesome;
+                                position: relative;
+                                right: 12px;
+                                top: 15px;
+                                color: #c2c2c2;
+                            }
+                        }
+                    }
+                    .dropdown-menu{
+                        padding: 0px;
+                            margin: 0px;
+                        .dropdown-menu{
+                            padding: 0px;
+                            margin: 0px;
+                            li{
+                                a{
+                                    padding: 10px;
+                                    outline: none;
+                                }
+                            }
+                        }
+                    }
+                    &:last-child{
+                        margin-right: 0px;
+                        &:before{
+                            display: none;
+                        }
+                    }
+                }
+                h5{
+                    font-size: 18px;
+                    font-family: $ub;
+                    color: #fff;
+                    padding-bottom: 15px;
+                }
+                .item_average{
+                    display: inline-block;
+                    text-align: center;
+                    margin-right: 20px;
+                    .border{
+                        height: 4px;
+                        width: 80px;
+                        background: #fff;
+                        position: relative;
+                        margin-top: 13px;
+                        margin-bottom: 10px;
+                        margin-right: 7px;
+                        &:before{
+                            content: "";
+                            background: $baseColor;
+                            height: 16px;
+                            width: 16px;
+                            border-radius: 50%;
+                            position: absolute;
+                            left: 0px;
+                            top: -6px;
+                            opacity: 0;
+                            @include transition;
+                        }
+                        &:after{
+                            content: "";
+                            position: absolute;
+                            left: 3.5px;
+                            top: -2px;
+                            height: 8px;
+                            width: 8px;
+                            border-radius: 50%;
+                            background: #fff;
+                            opacity: 0;
+                            @include transition;
+                        }
+                        span{
+                            &:before{
+                                content: "";
+                                background: $baseColor;
+                                height: 16px;
+                                width: 16px;
+                                border-radius: 50%;
+                                position: absolute;
+                                right: 0px;
+                                top: -6px;
+                                opacity: 0;
+                                @include transition;
+                            }
+                            &:after{
+                                content: "";
+                                position: absolute;
+                                right: 4.5px;
+                                top: -2px;
+                                height: 8px;
+                                width: 8px;
+                                border-radius: 50%;
+                                background: #fff;
+                                opacity: 0;
+                                @include transition;
+                            }
+                        }
+                    }
+                    h6{
+                        font-size: 16px;
+                        color: #fff;
+                        font-family: $ub;
+                    }
+                    &:hover{
+                        .border{
+                            background: $baseColor;
+                            &:before{
+                                opacity: 1;
+                            }
+                            &:after{
+                                opacity: 1;
+                            }
+                            span{
+                                &:before{
+                                opacity: 1;
+                                }
+                                &:after{
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                    .average{
+                        width: 90px;
+                        border: none;
+                        background: #fff;
+                        height: 4px;
+                        .ui-slider-range{
+                            background: $baseColor;
+                        }
+                        .ui-slider-handle{
+                            height: 16px;
+                            width: 16px;
+                            border-radius: 50%;
+                            border: none;
+                            background: $baseColor;
+                            outline: none;
+                            cursor: pointer;
+                            top: -6px;
+                            &:before{
+                                content: "";
+                                height: 8px;
+                                width: 8px;
+                                background: #fff;
+                                position: absolute;
+                                left: 3.5px;
+                                top: 4px;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                    label{
+                        font-family: $ub;
+                        color: #fff;
+                        font-size: 16px;
+                        margin-bottom: 0px;
+                        margin-top: 5px;
+                    }
+                }
+                &:nth-child(3){
+                    padding-left: 20px;
+                }
+            }
+            .search_btn{
+                text-align: center;
+                margin-top: 25px;
+                a{
+                    display: inline-block;
+                    margin-right: 25px;
+                    & + a{
+                        margin-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Advanced Search area css
+============================================================================================ */

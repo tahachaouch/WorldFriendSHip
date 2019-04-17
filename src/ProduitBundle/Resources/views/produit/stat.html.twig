@@ -1,0 +1,19 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+    <section>
+        <style>
+            section{
+                padding-top: 60px;
+                padding-left: 100px;
+            }
+        </style>
+    <div id="div_histogram">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        {{ gc_language('fr') }}
+        {{ gc_draw(piechart, 'div_histogram') }}
+    </script>
+    </div>
+    </section>
+{% endblock %}

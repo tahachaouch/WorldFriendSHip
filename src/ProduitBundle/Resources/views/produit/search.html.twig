@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="banner_area">
+        <div class="container">
+            <div class="banner_content">
+                <h3 title="Shop"><img class="left_img" src="img/banner/t-left-img.png" alt="">Shop<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <ul class="shop_banner_cart">
+                    <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ path ('produit_wishlist') }}"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--================End Banner Area =================-->
+
+    <!--================Shop left sidebar Area =================-->
+    <section class="shop_area shop_left_sidebar_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        {% for produit in produits %}
+                            <div class="col-md-4 col-sm-6">
+                                <div class="product_item">
+                                    <div class="product_img">
+                                        <img src="{{ asset('uploads/images/' ~ produit.image) }}" style="width:250px ; height:250px">
+                                        <div class="new_tag">
+                                            <h4>New</h4>
+                                        </div>
+                                        <div class="hover_icon">
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                                                <li><a href="{{ path('produit_show', { 'id': produit.id }) }}"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <h5>{{ produit.nomProd }}</h5>
+                                    <h6>$ {{ produit.prix }}</h6>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                    <div class="pagination_area">
+                        {{ knp_pagination_render(produits) }}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="right_sidebar_area">
+                        <aside class="s_widget search_widget">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search Here">
+                                <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </span>
+                            </div>
+                        </aside>
+                        <aside class="s_widget categories_widget">
+                            <div class="s_title">
+                                <h4>Categories</h4>
+                                <img src="{{ asset ('templates/img/widget-title-border.png') }}" alt="">
+                            </div>
+                            {% for categorie in categories %}
+                                <ul>
+                                    <li>
+                                        <a href="#"><img src="{{ asset ('templates/img/categories-list.png')}}" alt="">{{ categorie.libelle }}</a>
+                                    </li>
+                                </ul>
+                            {% endfor %}
+                        </aside>
+                        <aside class="s_widget price_widget">
+                            <div class="s_title">
+                                <h4>Select Price</h4>
+                                <img src="/templates/img/widget-title-border.png" alt="">
+                            </div>
+                            <div id="price_select"></div>
+                            <div class="price_inner">
+                                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <a href="#">$50</a>
+                                <a href="#">$350</a>
+                            </div>
+                        </aside>
+
+                        <aside class="s_widget l_product_widget">
+                            <div class="s_title">
+                                <h4>Latest Products</h4>
+                                <img src="img/widget-title-border.png" alt="">
+                            </div>
+                            <ul>
+                                <li><a href="#"><img src="img/shop/l-product/l-product-1.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/shop/l-product/l-product-2.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/shop/l-product/l-product-3.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/shop/l-product/l-product-4.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/shop/l-product/l-product-5.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="img/shop/l-product/l-product-6.jpg" alt=""></a></li>
+                            </ul>
+                        </aside>
+                        <aside class="s_widget tags_widget tags_2">
+                            <div class="s_title">
+                                <h4>Tags</h4>
+                                <img src="img/widget-title-border.png" alt="">
+                            </div>
+                            <ul>
+                                <li><a href="#">E Commerce</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Technology</a></li>
+                                <li><a href="#">Art</a></li>
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

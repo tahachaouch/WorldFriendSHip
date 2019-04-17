@@ -1,0 +1,44 @@
+{% extends 'baseadmin.html.twig' %}
+{% form_theme edit_form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <style>
+        h1
+        {
+            text-align: center;
+            color: midnightblue;
+            font-style: normal;
+            padding-top: 50px;
+            font-weight: normal;
+        }
+        section{
+            padding-bottom: 5px;
+        }
+    </style>
+<div class="container">
+    <h1>Modification d'un produit ! </h1>
+
+    <section>
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" class="btn btn-info"/>
+    {{ form_end(edit_form) }}
+    </section>
+</div>
+
+
+<div class="container">
+
+<section>
+   <a>
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Delete" class="btn btn-danger">
+        {{ form_end(delete_form) }}
+   </a>
+</section>
+
+    <a href="{{ path('produit_indexadmin') }}">Retour à la liste des produits</a>
+</div>
+
+
+{% endblock %}

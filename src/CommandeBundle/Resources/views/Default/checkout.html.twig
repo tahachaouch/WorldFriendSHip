@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+     <!--================Banner Area =================-->
+     <section class="banner_area">
+         <div class="container">
+             <div class="banner_content">
+                 <h3 title="Check Out"><img class="left_img" src="{{ asset ('templates/img/banner/t-left-img.png')}}" alt="">Livraison<img class="right_img" src="{{ asset ('templates/img/banner/t-right-img.png')}}" alt=""></h3>
+                 <a href="{{ path('commande_cart') }}">Panier</a>
+                 <a href="{{ path('commande_checkout') }}">Livraison</a>
+             </div>
+         </div>
+     </section>
+     <!--================End Banner Area =================-->
+
+     <!--==========Check out area==========-->
+     <section class="check_out_area">
+         <div class="container">
+             <div class="row">
+                 <div class="col-md-8">
+                     <div class="row">
+                         <div class="check_out_left">
+                             <h3>Détails de Votre Facture</h3>
+                             <form action="{{ path('commande_payement') }}" method="POST">
+                             <div class="form-group col-md-6">
+                                 <input type="text" class="form-control" id="first" placeholder="Nom">
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <input type="text" class="form-control" id="last" placeholder="Prénom">
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <input type="email" class="form-control" id="email" placeholder="Email">
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <input type="text" class="form-control" id="phone" placeholder="Téléphhone">
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <select class="selectpicker">
+                                     <option>Pays</option>
+                                     <option>Tunisie</option>
+                                 </select>
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <select class="selectpicker">
+                                     <option>Gouvernorat</option>
+                                     <option>Tunis</option>
+                                     <option>Ariana</option>
+                                 </select>
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <input type="text" class="form-control" id="phone" placeholder="Ville">
+                             </div>
+                             <div class="form-group col-md-6">
+                                 <input type="text" class="form-control" id="post" placeholder="Code Postal">
+                             </div>
+                             <div class="form-group col-md-12">
+                                 <input type="text" class="form-control" id="add" placeholder="Addresse">
+                             </div>
+                            <!-- <div class="creat_account">
+                                 <input type="checkbox" id="f-option" name="selector">
+                                 <label for="f-option">Create an Account</label>
+                                 <div class="check"></div>
+                             </div>-->
+                             <div class="form-group col-md-12">
+                                 <h2>Description</h2>
+                                 <textarea class="form-control" rows="1" placeholder="Notes sur Votre Commande"></textarea>
+                             </div>
+                             <div class="form-group col-md-12">
+                             <button type="submit" class="btn login_btn">Confirmer</button>
+                             </div>
+                             </form>
+                         </div>
+                     </div>
+                 </div>
+
+             </div>
+         </div>
+     </section>
+     <!--==========End Check out area==========-->
+ {% endblock %}

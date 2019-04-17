@@ -1,0 +1,62 @@
+produit_index:
+    path:     /
+    defaults: { _controller: ProduitBundle:produit:index }
+
+produit_indexadmin:
+    path:     /admin
+    defaults: { _controller: ProduitBundle:Produit:indexadmin }
+
+produit_search:
+    path:     /search
+    defaults: { _controller: ProduitBundle:produit:search }
+
+produit_wishlist:
+    path:     /wishlist
+    defaults: { _controller: ProduitBundle:produit:wishlist }
+
+produit_new:
+    path:     /new
+    defaults: { _controller: ProduitBundle:produit:new }
+
+produit_avis:
+    path:     /{id}/avis/
+    defaults: { _controller: ProduitBundle:produit:avis }
+
+produit_show:
+    path:     /show/{id}
+    defaults: { _controller: ProduitBundle:produit:show }
+
+produit_edit:
+    path:     /edit/{id}
+    defaults: { _controller: ProduitBundle:produit:edit }
+
+produit_delete:
+    path:     /{id}
+    defaults: { _controller: ProduitBundle:produit:delete }
+
+produit_stat:
+    path:     /admin/stat
+    defaults: { _controller: ProduitBundle:produit:stat }
+
+produit_categorie:
+    path:     /categorie/{idCat}
+    defaults: { _controller: ProduitBundle:produit:ProduitCategorie }
+
+add_comment:
+    path:     /avis/addcomment
+    defaults: { _controller: ProduitBundle:produit:ajoutCom }
+
+deletecom_with_ajax:
+    path:     /avis/delcom
+    defaults: { _controller: ProduitBundle:produit:Supprimer }
+
+get_prod_cat:
+    path:     /ProdByCat/{id}
+    defaults: { _controller: ProduitBundle:produit:getProduitByCat }
+
+
+
+
+
+
+

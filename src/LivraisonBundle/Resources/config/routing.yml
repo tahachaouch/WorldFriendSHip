@@ -1,0 +1,3 @@
+livraison_homepage:
+    path:     /
+    defaults: { _controller: LivraisonBundle:Default:index }

@@ -1,0 +1,51 @@
+commande_homepage:
+    path:     /
+    defaults: { _controller: CommandeBundle:Panier:cart }
+shop:
+      path:     /shop
+      defaults: { _controller: CommandeBundle:Panier:index }
+commande_add:
+        path:     /add/{id}
+        defaults: { _controller: CommandeBundle:Panier:add }
+commande_cart:
+        path:     /cart
+        defaults: { _controller: CommandeBundle:Panier:AfficheCart }
+commande_delete:
+            path:     /cart/delete/{id}
+            defaults: { _controller: CommandeBundle:Panier:delete }
+promo_delete:
+             path:     /promotion/delete/{id}
+             defaults: { _controller: CommandeBundle:Panier:deletePromo }
+promo_update:
+  path:     /promotion/update/{id}
+  defaults: { _controller: CommandeBundle:Panier:edit }
+commande_updateup:
+    path:     /cart/update
+    defaults: { _controller: CommandeBundle:Panier:updateup }
+commande_updatedown:
+    path:     /cart/updatedown
+    defaults: { _controller: CommandeBundle:Panier:updatedown }
+commande_checkout:
+    path:     /checkout
+    defaults: { _controller: CommandeBundle:Panier:checkout }
+commande_payement:
+        path:     /payement
+        defaults: { _controller: CommandeBundle:Panier:payement }
+commande_list_admin:
+    path:     /listAdmin
+    defaults: { _controller: CommandeBundle:Panier:listeCommande }
+commande_list_delete:
+    path:     /listAdmin/delete/{id}
+    defaults: { _controller: CommandeBundle:Panier:listeCommandeDelete }
+commande_promotion:
+        path:     /promotion
+        defaults: { _controller: CommandeBundle:Panier:listePromotion }
+getcart:
+    path:     /getcart
+    defaults: { _controller: CommandeBundle:Panier:getCart }
+valide:
+        path:     /payement/valide
+        defaults: { _controller: CommandeBundle:Panier:valide }
+pdf:
+        path:     /payement/pdf
+        defaults: { _controller: CommandeBundle:Panier:pdf }

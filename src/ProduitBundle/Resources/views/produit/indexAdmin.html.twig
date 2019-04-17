@@ -1,0 +1,189 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block body %}
+
+    <style>
+        body {
+            background-color: #3d566e;
+
+        }
+
+        a {
+            background-color: #b52e31 !important;
+        }
+
+        #bsgrid .bloc {
+            background-color: #FFFFFF;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        #bsgrid .bloc .title {
+            color: #000000;
+        }
+
+        #bsgrid a:hover {
+            text-decoration: none;
+        }
+
+        #bsgrid .liste {
+            background-color: #FFFFFF;
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        #bsgrid .liste .title {
+            float: left;
+            color: #000000;
+        }
+
+        #bsgrid .liste .info ul li {
+            margin-top: 10px;
+            color: #000000;
+        }
+
+        #bsgrid .liste .info {
+            float: right;
+        }
+
+        #bsgrid .liste .informations .info ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #bsgrid .liste .informations .info ul li {
+            display: inline-block;
+
+        }
+
+        #bsgrid .top {
+            margin-bottom: 16px;
+            margin-top: 16px;
+            width: 100%;
+        }
+
+        #bsgrid .top .button {
+            float: right;
+            margin-bottom: 16px;
+        }
+
+        #bsgrid .top .button button {
+            background-color: #8e44ad;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: .5s all;
+        }
+
+        #bsgrid .top .button button:hover {
+
+            transition: .5s all;
+        }
+
+        #bsgrid .top .button button:focus {
+            outline: 0;
+        }
+
+
+
+        #bsgrid .bloc .informations .info ul {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #bsgrid .bloc .informations .info ul li {
+            display: inline-block;
+        }
+
+    </style>
+
+    <script>
+        function liste() {
+            var bloc = $( "div#bloc" );
+            var news = $( "div#new" );
+
+            bloc.addClass('liste');
+            bloc.removeClass('bloc');
+
+            news.addClass('col-12');
+            news.removeClass('col-lg-4 col-md-6');
+        }
+
+        function bloc() {
+            var bloc = $( "div#bloc" );
+            var news = $( "div#new" );
+
+            bloc.addClass('bloc');
+            bloc.removeClass('liste');
+
+            news.addClass('col-lg-4 col-md-6');
+            news.removeClass('col-12');
+        }
+    </script>
+
+    <div id="bsgrid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="top">
+                        <div class="button">
+                            <button onclick="liste()">
+                                <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+                            </button>
+                            <button onclick="bloc()">
+                                <i class="fa fa-th-large fa-lg" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for produit in produits %}
+                <div id="new" class="col-lg-4 col-md-6">
+                    <a href="">
+                        <div id="bloc" class="bloc">
+                            <div class="image"><img src="{{ asset('uploads/images/' ~ produit.image) }}" style="width: 100%;
+            height: 200px;
+            background-position: center center;
+            background-size: cover;
+            margin-bottom: 20px;
+            border-radius: 4px;">
+                            </div>
+                            <div class="informations">
+                                <div class="title">
+                                    <H2>{{ produit.nomProd }}</H2>
+                                    <h3>$ {{ produit.prix }}</h3>
+                                </div>
+                                <div style="clear:both"></div>
+                                <div>
+                                    <a class="btn btn-info" href="{{ path('produit_edit',{'id':produit.id}) }}">edit</a>
+                                    <a class="btn btn-danger" href="{{ path('produit_delete',{'id':produit.id}) }}">delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+
+                </div>
+
+
+                {% endfor %}
+                <div class="pagination_area">
+                    {{ knp_pagination_render(produits) }}
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

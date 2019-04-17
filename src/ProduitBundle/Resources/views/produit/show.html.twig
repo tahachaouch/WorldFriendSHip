@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+
+    <!--================Banner Area =================-->
+    <section class="banner_area">
+        <div class="container">
+            <div class="banner_content">
+                <h3 title="Shop"><img class="left_img" src="img/banner/t-left-img.png" alt="">Shop<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <ul>
+                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!--================End Banner Area =================-->
+
+    <!--================Shop left sidebar Area =================-->
+    <section class="shop_area product_details_main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="slider_product_inner">
+                                <div class="rev_slider"  data-version="5.3.0.2" id="product_details">
+                                    <div class="product_img">
+
+                                        <!-- MAIN IMAGE -->
+                                        <img src="{{ asset('uploads/images/' ~ produit.image) }}" style="width:350px ; height:350px">
+                                        <!-- LAYERS -->
+
+                                    </div>
+                                </div><!-- END REVOLUTION SLIDER -->
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="product_details_right_content">
+                                <div class="product_details_text">
+                                    <h5>{{ produit.nomProd }}</h5>
+                                    <h3>$ {{ produit.prix }}</h3>
+                                    <p>{{ produit.description }}</p>
+                                </div>
+
+                                <section>
+                                    <style>
+                                        section{
+                                            padding-top: 30px;
+                                        }
+                                    </style>
+                                <button type="submit" value="LogIn" class="btn form-control login_btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Add To Cart</button>
+                                <button type="submit" value="LogIn" class="btn form-control login_btn"><i class="fa fa-heart" aria-hidden="true"></i>Add to Wishlist</button>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <section>
+                        <style>
+                            section{
+                                padding-top: 60px;
+                            }
+                        </style>
+                    <div class="product_description">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+
+                        </ul>
+                        <!-- Tab panes -->
+
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                <p>{{ produit.description }}</p>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="profile">
+                                Avez-vous utilisé ce produit auparavant?
+                                <a href="{{ path('produit_avis', { 'id': produit.id }) }}">ECRIRE UN AVIS</a>
+                            </div>
+                        </div>
+                    </div>
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    <div class="right_sidebar_area">
+                        <aside class="s_widget categories_widget">
+                            <div class="s_title">
+                                <h4>Categories</h4>
+                                <img src="{{ asset ('templates/img/widget-title-border.png') }}" alt="">
+                            </div>
+                            {% for categorie in categories %}
+                                <ul>
+                                    <li>
+                                        <a href="#"><img src="{{ asset ('templates/img/categories-list.png')}}" alt="">{{ categorie.libelle }}</a>
+                                    </li>
+                                </ul>
+                            {% endfor %}
+                        </aside>
+                        <aside class="s_widget l_product_widget">
+                            <div class="s_title">
+                                <h4>Rating</h4>
+                                <h3>
+                                    <style>
+                                        @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+                                        fieldset, label { margin: 0; padding: 0; }
+                                        body{ margin: 20px; }
+
+
+                                        /****** Style Star Rating Widget *****/
+
+                                        .rating {
+                                            border: none;
+                                            float: left;
+                                        }
+
+                                        .rating > input { display: none; }
+                                        .rating > label:before {
+                                            margin: 5px;
+                                            font-size: 1.25em;
+                                            font-family: FontAwesome;
+                                            display: inline-block;
+                                            content: "\f005";
+                                        }
+
+                                        .rating > .half:before {
+                                            content: "\f089";
+                                            position: absolute;
+                                        }
+
+                                        .rating > label {
+                                            color: #ddd;
+                                            float: right;
+                                        }
+
+                                        /***** CSS Magic to Highlight Stars on Hover *****/
+
+                                        .rating > input:checked ~ label, /* show gold star when clicked */
+                                        .rating:not(:checked) > label:hover, /* hover current star */
+                                        .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+                                        .rating > input:checked + label:hover, /* hover current star when changing rating */
+                                        .rating > input:checked ~ label:hover,
+                                        .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+                                        .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+                                    </style>
+                                    <fieldset class="rating">
+                                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                    </fieldset></h3>
+
+                            </div>
+
+                        </aside>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Shop left sidebar Area =================-->
+
+
+
+{% endblock %}

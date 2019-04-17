@@ -1,0 +1,31 @@
+
+
+{% for comment in com %}
+<div class="media">
+    <div class="media-left">
+        <img src="{{ asset('/templates/img/comment/comment-3.png') }}" alt="">
+    </div>
+    <div class="media-body">
+        <h4>{{ comment.idUser }}</h4>
+        <h5>{{ comment.postedAt|date('y/m/d H:i:s') }}</h5>
+        <p>{{ comment.content }}</p>
+
+        <form form action="{{ path('deletecom_with_ajax') }}" class="form_inner" method="post" id="comment">
+            <a href="#" class="button"  onclick="suppcom({{ produit.id }})"><i class="fa fa-reply" aria-hidden="true"></i>Effacer</a>
+        </form>
+    </div>
+
+</div>
+{% endfor %}
+<script>
+    function suppcom(id) {
+        $.ajax({
+            url:'{{ path('deletecom_with_ajax')}}',
+            type: 'post',
+            data: {'input':id},
+            success: function() {
+                $('#'+'999'+id).hide();
+            }
+        });
+    }
+</script>

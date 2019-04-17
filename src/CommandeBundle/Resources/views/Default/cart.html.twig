@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+
+
+     <!--================Banner Area =================-->
+     <section class="banner_area">
+         <div class="container">
+             <div class="banner_content">
+                 <h3 title="Cart"><img class="left_img" src="{{ asset ('templates/img/banner/t-left-img.png')}}" alt="">Panier<img class="right_img" src="{{ asset ('templates/img/banner/t-right-img.png')}}" alt=""></h3>
+                 <a href="index.html">Boutique</a>
+                 <a href="{{ path('commande_cart') }}">Panier</a>
+                 <div class="newsletter_widget">
+                 <div class="input-group">
+                     <input type="text" class="form-control" placeholder="Rechercher">
+                     <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                        </span>
+                 </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!--================End Banner Area =================-->
+
+     <!--==========End shop page banner area==========-->
+     <section class="shoping_cart_area">
+         <div class="container">
+             <div class="shoping_cart_inner">
+                 <div class="table-responsive" id="Parent">
+
+                 </div>
+             </div>
+            <div class="row cart_cupon_area">
+                 <div class="col-md-7">
+                     <div class="apply_cupon_area">
+                         <a href="{{ path('shop') }}" class="btn login_btn">
+                         Continuer Shopping</a>
+                     </div>
+                 </div>
+
+                <br>
+                <br>
+                <br>
+                 <div class="col-md-5">
+                     <div class="cart_box">
+                         <h5>Total Panier</h5>
+                         <div class="cart_box_inner">
+                             <h6>Total <span>{{ total }} TND</span></h6>
+                             <h6>Remise <span>-{{ remise }} TND</span></h6>
+                             <h6>Frais Livraison <span>15 TND</span></h6>
+                         </div>
+                         <div class="total_cart_area">
+                             <div class="total_cart_inner">
+                                 <h4>Total <span>{{ totalfinal }} TND</span></h4>
+                                 <a href="{{ path('commande_checkout') }}" class="btn login_btn">Passer la Commande</a>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     {% block javascripts %}
+     <script>
+
+         $(document).ready(function(){
+
+             $.ajax({
+                 url: "{{path('getcart')}}",
+                 method: "GET",
+                 dataType: 'json',
+                 success: function(data, status){
+                     $('#Parent').html(data);
+
+
+                 }
+             });
+         });
+
+
+     </script>
+
+     {% endblock%}
+
+ {% endblock %}

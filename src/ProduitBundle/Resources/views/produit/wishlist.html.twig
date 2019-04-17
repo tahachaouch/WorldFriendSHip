@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!--================Banner Area =================-->
+<section class="banner_area">
+    <div class="container">
+        <div class="banner_content">
+            <h3 title="Cart"><img class="left_img" src="img/banner/t-left-img.png" alt="">Cart<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
+            <a href="index.html">Home</a>
+            <a href="shop-cart.html">Wishlist</a>
+        </div>
+    </div>
+</section>
+<!--================End Banner Area =================-->
+
+<!--==========End shop page banner area==========-->
+<section class="shoping_cart_area">
+    <div class="container">
+        <div class="shoping_cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="product_name">Product</th>
+                        <th class="product_name">Description</th>
+                        <th class="product_price">Price</th>
+                        <th class="remove_cart">Remove</th>
+                    </tr>
+                    </thead>
+                    {% for produit in produits %}
+                    <tbody>
+                    <tr>
+                        <td class="product_name">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img class="media-object" src="{{ asset('uploads/images/' ~ produit.image) }}" style="width:250px ; height:250px">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4>{{ produit.nomProd }}</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="product_quantity">{{ produit.description }}</td>
+                        <td class="product_price">  $ {{ produit.prix }}</td>
+                        <td class="remove_cart">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--==========End shop page banner area==========-->
+
+{% endblock %}

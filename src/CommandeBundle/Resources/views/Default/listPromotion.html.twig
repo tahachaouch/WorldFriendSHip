@@ -1,0 +1,150 @@
+{% extends 'baseadmin.html.twig' %}
+ {% block body %}
+     <link href={{ asset('bootstrap/bootstrap.min.css') }} rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+     <div align="center" class="bs-example widget-shadow">
+         <h4>Promotions</h4>
+         <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="80%">
+             <thead>
+             <tr  bgcolor="#fff8dc" align="center">
+                 <th >N° Prom</th>
+                 <th >N° Promotion</th>
+                 <th >Pourcentage</th>
+                 <th>Date</th>
+                 <th>Description</th>
+                 <th>Nom Produit</th>
+                 <th><i class="lnr lnr-database"></i></th>
+                 <th><i class="lnr lnr-exit"></i></th>
+             </tr>
+             </thead>
+             <tbody>
+             {%for l in list  %}
+                 <tr>
+                     <td >
+                         <h4>00{{ l.idPromo}}</h4>
+                     </td>
+                     <td >
+                         <h4>00{{ l.idPromo}}</h4>
+                     </td>
+                     <td >{{l.pourcentage}}</td>
+                     <td>
+                         <h4>{{l.datePromo|date('Y-m-d') }}</h4></td>
+                     <td>
+                         <h4>{{l.description}}</h4></td>
+
+                     <td>
+                         <h4>{{l.nomProd}}</h4></td>
+
+                     <td>
+                         <a href="#" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#exampleModal" onclick="onPressDelete ({{ l.idPromo }})">
+                              <span  class="glyphicon glyphicon-trash"></span></a></td>
+                     <td>
+                     <a href="{{ path('promo_update',{'id' : l.idPromo}) }}" class="btn btn-default btn-lg">
+                         <span  class="glyphicon glyphicon-edit"></span></a></td>
+
+                 </tr>
+             {% endfor %}
+
+             </tbody>
+         </table>
+     </div>
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header" style="background-color: #ea4335">
+                     <h5 class="modal-title" id="exampleModalLabel">Supprimer Une Promotion</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                 </div>
+                 <div class="modal-body">
+                     Voulez-vous bien supprimer Cette Promotion ?
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                     <a   class="btn btn-primary" href="" id="btnDelete" style="background-color: #ea4335; border-color: white">Supprimer</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <br>
+     <br>
+     <div class="content">
+         <div class="monthly-grid">
+             <div class="panel panel-widget">
+                 <div class="panel-title middle-content">
+                     Ajouter une Nouvelle Promotion
+
+                 </div>
+                 <div class="panel-body">
+                     <!-- status -->
+
+                         {{ form_start(form) }}
+
+
+
+                     <div class="form-group col-md-6" id="commandebundle_promotion_maxPourcentage">
+                         <input placeholder="Pourcentage" id="commandebundle_promotion_minPourcentage"
+                         {{ form_widget(form.pourcentage, {'attr': {'class': 'form-control'}}) }}
+
+                     </div>
+                     <div class="alert alert-error" id="errornombre" >
+                         {{ form_errors(form) }}
+                     </div>
+
+
+                     <div class="form-group col-md-6">
+                         <input placeholder="Description"
+
+                         {{ form_widget(form.description, {'attr':{'class': 'form-control'}}) }}
+                     </div>
+                     <!-- status -->
+                     <div class="form-group col-md-6">
+                         {{ form_widget(form.datePromo) }}
+                     </div>
+                     <div class="form-group col-md-6">
+                         {{ form_widget(form.idProd) }}
+                     </div>
+                 </div>
+                 <br>
+                 <div class="grid_1 simpleCart_shelfItem">
+                     <div class="item_add"><span class="item_price">
+                               {{ form_widget(form) }}
+                         <input type="submit" value="Confirmer" class="btn login_btn"/>
+                         {{ form_end(form) }}
+                         </span></div>
+                 </div>
+             </div>
+         </div></div>
+{% block javascripts %}
+     <script>
+         function onPressDelete (id )
+         {
+             newLien = '/WorldfriendshipProject/web/app_dev.php/commande/promotion/delete/' + id;
+             document.getElementById('btnDelete').href = newLien;
+         }
+         $(document).ready(function(){
+
+             $("#commandebundle_promotion_maxPourcentage").keyup(function () {
+                 var pour=  $('#commandebundle_promotion_minPourcentage').val() ;
+                 verify(pour);
+             });
+
+             function verify(pour) {
+
+                 if((isNaN(parseFloat(pour)) || isNaN(parseFloat(max))>100))
+                 {
+                     $('#errornombre').html(" Pourcentage doit  etre  un nombre inférieu à 100").css('color','red');
+
+
+                 }
+
+
+             }})
+     </script>
+    {% endblock %}
+   <!--  <div class="grid_1 simpleCart_shelfItem">
+     <div class="item_add"><span class="item_price"><a href="#">Ajouter une nouvelle Promotion</a></span></div>
+     </div>-->
+ {% endblock %}

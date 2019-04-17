@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!--================Banner Area =================-->
+    <section class="banner_area">
+        <div class="container">
+            <div class="banner_content">
+                <h3 title="Blog"><img class="left_img" src="img/banner/t-left-img.png" alt="">Blog<img class="right_img" src="img/banner/t-right-img.png" alt=""></h3>
+                <a href="index.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="blog.html">Blog Full Width</a>
+            </div>
+        </div>
+    </section>
+    <!--================End Banner Area =================-->
+
+
+    <!--================Blog grid Area =================-->
+<section class="blog_grid_area">
+    <div class="container">
+        <div class="single_blog_middle">
+            <div class="blog_details_content">
+                <div class="single_blog_image">
+                    <h3>{{ produit.nomProd }}</h3>
+                    <h2>$ {{ produit.prix }}</h2>
+                    <img src="{{ asset('uploads/images/' ~ produit.image) }}"  style="width:350px ; height:350px">
+                </div>
+                <div class="blog_quote">
+                <p>{{ produit.description }}</p>
+                </div>
+                <div class="blog_standard">
+                    <div class="viewrs">
+                        <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
+                        <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
+                        <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
+                    </div>
+                </div>
+            </div>
+            <div class="blog_comment_list">
+                <h3>Comments</h3>
+                <div class="blog_comment_item" id="commentaires">
+                    {% for comment in comm %}
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="{{ asset('/templates/img/comment/comment-3.png') }}" alt="">
+                            </div>
+                            <div class="media-body">
+                                <h4>{{ comment.idUser }}</h4>
+                                <h5>{{ comment.postedAt|date('y/m/d H:i:s') }}</h5>
+                                <p>{{ comment.content }}</p>
+
+                                <a href="#" class="button"  onclick="suppcom({{ produit.id }})"><i class="fa fa-reply" aria-hidden="true"></i>Effacer</a>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="comment_form_area">
+                <h4>Leave a Comment</h4>
+                <div class="row">
+                    <form action="{{ path('add_comment') }}" class="form_inner" method="post" id="comment">
+                        <div class="form-group col-md-12">
+                            <textarea id="commentt" placeholder="Comment" rows="1"></textarea>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <button type="button" onclick="ajoutcom({{ produit.id }})" value="LogIn" class="btn form-control login_btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Blog grid Area =================-->
+<script>
+    function ajoutcom(id) {
+        if ($('#commentt').val() == "") {
+            alert("vous n'avez pas ecrire un commentaire ");
+        }
+        else {
+            var searchText = $("#commentt").val();
+            $.ajax({
+                type: "get",
+                url: '{{ path('add_comment') }}',
+                data: 'id=' + id + '&com=' + searchText,
+                dataType: 'html',
+                success: function (result) {
+                    var parsedData = JSON.parse(result);
+                    $('#commentaires').empty();
+                    $('#commentaires').html(parsedData.data);
+                    $('#commentt').val("");
+                }
+            });
+        }
+    }
+    function suppcom(id) {
+        $.ajax({
+            url:'{{ path('deletecom_with_ajax')}}',
+            type: 'post',
+            data: {'input':id},
+            success: function() {
+                alert('az');
+                $('#'+'999'+id).empty();
+            }
+        });
+    }
+</script>
+{% endblock %}

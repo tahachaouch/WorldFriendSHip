@@ -1,0 +1,15 @@
+<div style="">
+    <h5>Notifications</h5>
+    <ul id="notifications">
+        {% for notif in notifications %}
+        <li>
+            {{ notif.title }}<br>
+            {{ notif.description }}<br>
+           <a href="{{ path(notif.route, notif.parametrs) }}">See</a>
+            {% else %}
+            <li>
+            List is empty
+        </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+     <!--================Banner Area =================-->
+     <section class="banner_area">
+         <div class="container">
+             <div class="banner_content">
+                 <h3 title="Check Out"><img class="left_img" src="{{ asset ('templates/img/banner/t-left-img.png')}}" alt="">Payement<img class="right_img" src="{{ asset ('templates/img/banner/t-right-img.png')}}" alt=""></h3>
+                 <a href="{{ path('commande_checkout') }}">Livraison</a>
+                 <a href="{{ path('commande_payement') }}">Payement</a>
+             </div>
+         </div>
+     </section>
+     <!--================End Banner Area =================-->
+
+     <!--==========Check out area==========-->
+     <section class="check_out_area">
+         <div class="container">
+
+
+
+
+                     <div class="order_box">
+                         <h2>Commande</h2>
+                         <h3>Produit <span>Total</span></h3>
+
+                         {%for prod in produits  %}
+                         <div class="samrt_watch">
+                             <h4>{{prod.nomProd}} x {{prod.quantite}} <span>{{prod.quantite * prod.prix}} TND</span></h4>
+                         </div>
+                         {% endfor %}
+                         <div class="subtotal">
+                             <h4>Total Panier <span>{{total}} TND</span></h4>
+                             <h4>Frais Livraison<span>15 TND</span></h4>
+                             <h4>Remise<span>-{{remise}} TND</span></h4>
+                         </div>
+                         <div class="total_footer">
+                             <h3>Total Commande en TND  <span>{{totalfinal}} TND</span></h3>
+                         </div>
+                         <div class="total_footer">
+                             <h3>Total Commande en USD <span>{{totalDollar}}$</span></h3>
+                         </div>
+                         <a href="{{ path('valide') }}">
+                         <button type="submit" class="btn login_btn">Payer Cash</button></a>
+                         <form action="{{ path('valide') }}" method="POST">
+                             <script
+                                     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                     data-key="pk_test_UH7NCFv8VMuzYGs7LFaMmrCO"
+                                     data-amount="{{total*0.33}}00"
+                                     data-zip-code="false"
+                                     data-name="Payement"
+                                     data-description="Example charge"
+                                     data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                     data-locale="auto">
+
+
+                             </script>
+                             <script>
+                                 // Hide default stripe button, be careful there if you
+                                 // have more than 1 button of that class
+                                 document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                             </script>
+                             <br>
+                             <br>
+                             <button type="submit" class="btn login_btn">Payer par Carte</button>
+                         </form>
+
+                     </div>
+                 </div>
+
+
+     </section>
+     <!--==========End Check out area==========-->
+ {% endblock %}

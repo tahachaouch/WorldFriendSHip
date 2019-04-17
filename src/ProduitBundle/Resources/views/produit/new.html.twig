@@ -1,0 +1,30 @@
+{% extends 'baseadmin.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+<style>
+    h1
+    {
+    text-align: center;
+    color: midnightblue;
+    font-style: normal;
+    padding-top: 50px;
+    font-weight: normal;
+    }
+</style>
+    <div class="container">
+        <h1>Création d'un produit !</h1>
+        {{ form_start(form) }}
+        {{ form_row (form.nomProd,{'attr':{'placeholder':"Nom du produit"}})}}
+        {{ form_row (form.description,{'attr':{'placeholder':"Description du produit"}})}}
+        {{ form_row (form.quantite,{'attr':{'placeholder':"Quantité"}})}}
+        {{ form_row (form.prix,{'attr':{'placeholder':"Prix du produit"}})}}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">Create</button>
+        {{ form_end(form) }}
+    </div>
+    <div class="container">
+        <a href="{{ path('produit_indexadmin') }}">Retour à la liste des produits</a>
+    </div>
+
+{% endblock %}

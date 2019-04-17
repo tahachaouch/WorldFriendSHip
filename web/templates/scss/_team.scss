@@ -1,0 +1,602 @@
+/* Actives Memebers area css
+============================================================================================ */
+.actives_members{
+    margin-bottom: -45px;
+    padding-top: 80px;
+    overflow: hidden;
+    .welcome_title{
+        padding-bottom: 35px;
+    }
+    .active_members_item{
+        text-align: center;
+        padding-bottom: 45px;
+        img{
+            max-width: 100%;
+        }
+        h4{
+            font-size: 16px;
+            font-family: $ub;
+            font-weight: bold;
+            color: $pfont;
+            padding-top: 18px;
+            padding-bottom: 8px;
+        }
+        h5{
+            font-size: 16px;
+            font-family: $ub;
+            font-weight: 300;
+            color: $pfont;
+        }
+    }
+    .active_mem_item{
+        padding-bottom: 45px;
+        ul{
+            li{
+                width: auto;
+                
+            }
+        }
+    }
+    .row{
+        .col-sm-2{
+            &:nth-child(6){
+                .active_mem_item{
+                    .nav.navbar-nav{
+                        .tool_hover{
+                            .dropdown-menu{
+                                left: auto;
+                                right: 0px;
+                                &:before{
+                                    left: auto;
+                                    right: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &:last-child{
+                .active_mem_item{
+                    .nav.navbar-nav{
+                        .tool_hover{
+                            .dropdown-menu{
+                                left: auto;
+                                right: 0px;
+                                &:before{
+                                    left: auto;
+                                    right: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Actives Memebers area css
+============================================================================================ */
+
+/* All Memebers area css
+============================================================================================ */
+.all_members_area{
+    padding-bottom: 80px;
+    .welcome_title{
+        padding-bottom: 35px;
+    }
+    .all_members_item{
+        text-align: center;
+        padding-bottom: 45px;
+        img{
+            max-width: 100%;
+        }
+        img{
+            max-width: 1005;
+            border-radius: 5px;
+        }
+        h4{
+            font-size: 16px;
+            font-family: $ub;
+            font-weight: bold;
+            color: $pfont;
+            padding: 20px 0px 8px 0px;
+        }
+        h5{
+            font-size: 16px;
+            font-family: $ub;
+            font-weight: 300;
+            color: $pfont;
+        }
+    }
+    .register_angkar_btn{
+        text-align: center;
+        margin: 5px auto 0px;
+    }    
+}
+/* End All Memebers area css
+============================================================================================ */
+
+/* Members Details area css
+============================================================================================ */
+.members_profile_inners{
+    .profile_menu{
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        margin-bottom: 30px;
+        li{
+            display: inline-block;
+            padding: 0px 25px;
+            a{
+                display: inline-block;
+                line-height: 40px;
+                font-family: $ub;
+                color: $dip;
+                font-weight: bold;
+                font-size: 16px;
+                position: relative;
+                @include transition;
+                background: none;
+                border: none;
+                padding: 0px;
+                outline: none;
+                box-shadow: none;
+                &:before{
+                    content: "";
+                    background: $baseColor;
+                    left: 0px;
+                    bottom: -1px;
+                    width: 100%;
+                    height: 3px;
+                    position: absolute;
+                    opacity: 0;
+                    @include transition;
+                }
+            }
+            &:hover, &.active{
+                a{
+                    color: $baseColor;
+                    border: none;
+                    &:before{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    .profile_list{
+        ul{
+            display: inline-block;
+            li{
+                margin-bottom: 15px;
+                a{
+                    font-size: 16px;
+                    font-family: $ub;
+                    color: $pfont;
+                }
+                &:last-child{
+                    margin-bottom: 0px;
+                }
+            }
+            &:nth-child(2){
+                display: inline-block;
+                padding-left: 30px;
+                li{
+                    margin-bottom: 15px;
+                    a{
+                        font-size: 16px;
+                        font-family: $ub;
+                        color: $pfont;
+                        font-weight: bold;
+                    }
+                    &:last-child{
+                        margin-bottom: 0px;
+                    }
+                }
+            }
+            &:nth-child(3){
+                padding-left: 138px;
+            }
+            &:last-child{
+                padding-left: 30px;
+                li{
+                    margin-bottom: 15px;
+                    a{
+                        font-size: 16px;
+                        font-family: $ub;
+                        color: $pfont;
+                        font-weight: bold;
+                    }
+                    &:last-child{
+                        margin-bottom: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+.members_about_box{
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 30px 22px;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    h4{
+        display: inline-block;
+        font-family: $ub;
+        font-weight: bold;
+        color: $dip;
+        font-size: 30px;
+        padding-bottom: 10px;
+    }
+    h5{
+        font-size: 22px;
+        display: inline-block;
+        font-family: $ub;
+        font-weight: 500;
+        color: $pfont;
+        padding-left: 15px;
+    }
+    p{
+        font-size: 16px;
+        line-height: 24px;
+        font-family: $ub;
+        color: $pfont;
+    }
+    &:last-child{
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+}
+/* End Members Details area css
+============================================================================================ */
+
+/* Author List area css
+============================================================================================ */
+.author_list_area{
+    background: #f4f4f4;
+    padding: 50px 0px;
+    border-bottom: 2px solid #e0e0e0;
+    .author_item_l{
+        text-align: center;
+        img{
+            @include transition;
+        }
+        &:hover{
+            img{
+                opacity: .4;
+            }
+        }
+        &.heart_h, &.close_h{
+            position: relative;
+            i{
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                left: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: $baseColor;
+                font-size: 16px;
+                opacity: 0;
+                @include transition;
+            }
+            &:hover{
+                i{
+                    opacity: 1;
+                }
+            }
+        }
+        &.a_l_hover{
+            position: relative;
+            &:before{
+                content: "";
+                border: 2px solid $baseColor;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-radius: 50%;
+                opacity: 0;
+                @include transition;
+                z-index: 2;
+            }
+            &:after{
+                content: "";
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 7px 3.5px 0 3.5px;
+                border-color: $baseColor transparent transparent transparent;
+                position: absolute;
+                bottom: -9px;
+                left: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+                @include transition;
+                z-index: 2;
+            }
+            &:hover{
+                &:before{
+                    opacity: 1;
+                }
+                &:after{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+/* End Author List area css
+============================================================================================ */
+
+/* Active Members area css
+============================================================================================ */
+.active_members{
+    padding: 80px 0px;
+    .col-md-2{
+        &:last-child{
+            .navbar-nav{
+                li{
+                    &.tool_hover{
+                        .dropdown-menu{
+                            left: auto;
+                            right: -100px;
+                            &:before{
+                                left: auto;
+                                right: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.active_mem_item{
+    text-align: center;
+    .navbar-nav{
+        margin-top: -20px;
+        li{
+            width: calc(100% / 3);
+            margin-top: 20px;
+            a{
+                padding: 0px;
+                background: transparent;
+                position: relative;
+                display: inline-block;
+                &:before{
+                    content: "";
+                    background: rgba(0, 0, 0, .6);
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 0px;
+                    top: 0;
+                    opacity: 0;
+                    @include transition;
+                }
+                &:after{
+                    content: "\e870";
+                    font-family: 'Linearicons-Free';
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    margin-left: -20px;
+                    margin-top: -20px;
+                    background: $baseColor;
+                    color: #fff;
+                    text-align: center;
+                    line-height: 40px;
+                    transform: rotate(45deg);
+                    opacity: 0;
+                    @include transition;
+                }
+                img{
+                    max-width: 100%;
+                }
+            }
+            &.tool_hover{
+                .dropdown-menu{
+                    display: block;
+                    top: auto;
+                    bottom: 112%;
+                    padding: 0px;
+                    min-width: 270px;
+                    margin: 0px;
+                    border-radius: 5px;
+                    border: 1px solid #e0e0e0;
+                    left: 50px;
+                    opacity: 0;
+                    @include transition;
+                    visibility: hidden;
+                    li{
+                        width: 100%;
+                        margin-top: 0px;
+                        .head_area{
+                            background: $baseColor;
+                            border-top-left-radius: 5px; 
+                            border-top-right-radius: 5px; 
+                            padding: 0px 20px;
+                            h4{
+                                display: inline-block;
+                                font-size: 16px;
+                                font-family: $ub;
+                                font-weight: bold;
+                                line-height: 42px;
+                                color: #fff;
+                                & + h4{
+                                    float: right;
+                                }
+                            }
+                        }
+                        .media{
+                            margin: 0px;
+                            padding: 18px 0px;
+                            .media-left{
+                                padding-right: 20px;
+                                img{
+                                    padding-left: 20px;
+                                }
+                            }
+                            .media-body{
+                                h6{
+                                    font-size: 16px;
+                                    color: $pfont;
+                                    line-height: 24px;
+                                    font-family: $ub;
+                                }
+                            }
+                        }
+                    }
+                    &:before{
+                        content: "";
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 12px 6px 0 6px;
+                        border-color: #fff transparent transparent transparent;
+                        position: absolute;
+                        bottom: -12px;
+                        left: 20px;
+                    }
+                }
+                &:hover{
+                    .dropdown-menu{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+            &:hover{
+                a{
+                    &:before{
+                        opacity: 1;
+                    }
+                    &:after{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    h4{
+        font-family: $ub;
+        color: $dip;
+        font-size: 16px;
+        font-weight: bold;
+        padding-bottom: 5px;
+        padding-top: 10px;
+        overflow: hidden;
+        clear: both;
+    }
+    h5{
+        font-family: $ub;
+        color: $pfont;
+        font-size: 16px;
+        font-weight: 300;
+    }
+}
+/* End Active Members area css
+============================================================================================ */
+
+/* Groups Members area css
+============================================================================================ */
+.groups_members_area{
+    padding: 80px 0px;
+    .search_area{
+        padding-bottom: 35px;
+        .pull-left{
+            h5{
+                display: inline-block;
+                font-size: 16px;
+                color: $pfont;
+                font-weight: 300;
+                padding-right: 15px;
+            }
+            .bootstrap-select{
+                width: 200px;
+                .btn-default{
+                    height: 48px;
+                    border: 1px solid #f4f4f4;
+                    background: #f4f4f4;
+                    padding: 0px 25px;
+                    outline: none !important;
+                    box-shadow: none;
+                    border-radius: 24px;
+                    .filter-option{
+                        font-size: 16px;
+                        color: $pfont;
+                        font-family: $ub;
+                        font-weight: 500;
+                    }
+                    .bs-caret{
+                        &:before{
+                            content: "\f0dc";
+                            font: normal normal normal 12px/1 FontAwesome;
+                            color: #c2c2c2;
+                            position: relative;
+                            right: 5px;
+                        }
+                        .caret{
+                            display: none;
+                        }
+                    }
+                }
+                .dropdown-menu{
+                    .dropdown-menu.inner{
+                        li{
+                            a{
+                                line-height: 30px;
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .pull-right{
+            .search_widget{
+                max-width: 370px;
+            }
+        }
+    }
+    .active_mem_item{
+        margin-top: 45px;
+        h4{
+            padding-top: 15px;
+            padding-bottom: 10px;
+        }
+        h5{
+            padding-bottom: 10px;
+            & + h5{
+                padding-bottom: 0px;
+            }
+        }
+    }
+}
+.groups_members_area{
+    .active_mem_item{
+        ul{
+            li{
+                width: auto;
+            }
+        }
+    }
+}
+/* End Groups Members area css
+============================================================================================ */
+
+.active_members{
+    .active_mem_item{
+        .nav.navbar-nav{
+            li{
+                width: 100%;
+            }
+        }
+    }
+}
