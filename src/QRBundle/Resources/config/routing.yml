@@ -1,3 +1,83 @@
 qr_homepage:
     path:     /
     defaults: { _controller: QRBundle:Default:index }
+
+qr_create:
+    path:     /create
+    defaults: { _controller: QRBundle:Default:createqr }
+qr_createsound:
+    path:     /createsound
+    defaults: { _controller: QRBundle:Default:createqrsound }
+
+
+qr_createsoundf:
+    path:     /createsoundf
+    defaults: { _controller: QRBundle:Default:createqrsoundf }
+
+
+qr_myposts:
+    path:    /myposts
+    defaults: {_controller: QRBundle:Default:myPosts}
+
+
+qr_myposts1:
+    path:    /myposts1/{id}
+    defaults: {_controller: QRBundle:Default:myPosts1}
+
+qr_supprimerquestion:
+    path:    /supprimerquestion/{id}
+    defaults: {_controller: QRBundle:Default:supprimerquestion}
+
+qr_ajouterrate:
+    path:    /ajouterrate/{id}/{idr}/{idu}
+    defaults: {_controller: QRBundle:Default:ajouterRate}
+
+qr_ajouterunrate:
+    path:    /ajouterunrate/{id}/{idr}/{idu}
+    defaults: {_controller: QRBundle:Default:ajouterUnRate}
+
+qr_signalerquestion:
+    path:    /signalerquestion/{id}
+    defaults: {_controller: QRBundle:Default:signalerQuestion}
+
+
+qr_myposts2:
+    path:    /myposts2/{id}
+    defaults: {_controller: QRBundle:Default:myPosts2}
+
+
+qr_supprimerreponse:
+    path:    /supprimerreponse/{id}/{idq}
+    defaults: {_controller: QRBundle:Default:supprimerreponse}
+
+
+qr_modifierreponse:
+    path:    /modifierreponse/{id_r}/{id_q}
+    defaults: {_controller: QRBundle:Default:modifierReponse}
+
+
+
+qr_homepageadminqr:
+    path:     /admin
+    defaults: { _controller: QRBundle:Default:indexAdmin }
+
+
+qr_mypostsadmin1:
+    path:    /mypostsadmin1/{id}
+    defaults: {_controller: QRBundle:Default:myPostsAdmin1}
+
+
+qr_affichersignaler:
+    path:    /affichersignaler
+    defaults: {_controller: QRBundle:Default:affichersignalerqr}
+
+
+qr_marquerlu:
+    path:    /marquerlu/{id}/{id_q}
+    defaults: {_controller: QRBundle:Default:marquerlu}
+
+
+
+qr_supprimersignaquest:
+    path:    /supprimquestsig/{id}/{id_q}
+    defaults: {_controller: QRBundle:Default:supprimersigquest}

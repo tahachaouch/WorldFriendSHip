@@ -122,4 +122,10 @@ class User extends BaseUser
     {
         $this->sexe = $sexe;
     }
+
+    public function __toString(){
+
+        // to show the id of the Category in the select
+        return  $this->id;
+    }
 }

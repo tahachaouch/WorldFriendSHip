@@ -37,6 +37,7 @@
     <script src="{{ asset ('https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE')}}"></script>
 
     <script src="{{ asset ('templates/js/map-custome.js')}}"></script>
+ {#   <scripts src="{{asset(' https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js')  }}" > </scripts>#}
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -153,15 +154,15 @@
                     <li class="dropdown submenu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ asset ('templates/html/community.html')}}">Community</a></li>
-                            <li><a href="{{ asset ('templates/html/members.html')}}">Members</a></li>
-                            <li><a href="{{ asset ('templates/html/members-detail.html')}}">Members Details</a></li>
-                            <li><a href="{{ asset ('templates/html/discussions.html')}}">Discussions</a></li>
-                            <li><a href="{{ asset ('templates/html/forums.html')}}">Forums</a></li>
-                            <li><a href="{{ asset ('templates/html/groups.html')}}">Groups</a></li>
-                            <li><a href="{{ asset ('templates/html/matches.html')}}">Matches</a></li>
-                            <li><a href="{{ asset ('templates/html/quick.html')}}">Quick</a></li>
-                            <li><a href="{{ asset ('templates/html/search.html')}}">Search</a></li>
+                          {#  <li><a href="{{ asset ('templates/html/community.html')}}">Community</a></li>#}
+                         {#   <li><a href="{{ asset ('templates/html/members.html')}}">Members</a></li>#}
+                          {#  <li><a href="{{ asset ('templates/html/members-detail.html')}}">Members Details</a></li>#}
+                            <li><a href="{{ path('qr_homepage') }}">Acceuil</a></li>
+                            <li><a href="{{ path('qr_myposts')}}">My Posts</a></li>
+                           {# <li><a href="{{ asset ('templates/html/groups.html')}}">Groups</a></li> #}
+                           {# <li><a href="{{ asset ('templates/html/matches.html')}}">Matches</a></li>#}
+                          {#   <li><a href="{{ asset ('templates/html/quick.html')}}">Quick</a></li> #}
+                          {#  <li><a href="{{ asset ('templates/html/search.html')}}">Search</a></li> #}
                         </ul>
                     </li>
                     <li class="dropdown submenu">

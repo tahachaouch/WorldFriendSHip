@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+
+<br> <br><br>
+
+<!--================Banner Area =================-->
+<section style="background-image: url('{{ asset('templates/img/1000.jpg') }}');height: 30%"  >
+    <div >
+        <div >
+
+
+        </div>
+    </div>
+</section>
+<!--================End Banner Area =================-->
+
+     <br> <br> <br> <br>
+     {{ form_start(form) }}
+     {{ form_widget(form.contenu_reponse) }}
+     {{ form_end(form) }}
+
+
+
+
+ {% endblock body %}

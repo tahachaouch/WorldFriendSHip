@@ -1,0 +1,132 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<br> <br> <br>
+    <!--================Banner Area =================-->
+    <section  style="background-image: url('{{ asset('templates/img/1000.jpg') }}');height: 30%">
+        <div >
+            <div >
+
+            </div>
+        </div>
+    </section>
+    <!--================End Banner Area =================-->
+
+<br> <br> <br> <br> <br> <br> <br>
+    <span  style="margin-left: 20px;font-weight: bold;border-style: groove">&nbsp;&nbsp;&nbsp;&nbsp;Titre Question&nbsp;&nbsp;&nbsp;&nbsp;</span>   <text  name="titre" style="margin-left: 150px;width: 50%"> <span id="message" style="border-style: groove;width: 300px"> </span> </text> <a id='btnGiveCommand'  >   <img src="{{ asset('templates/img/sound.jpg') }}" style="height: 5%;width: 5%"  align=""> </a> <br> <br><br>
+    <span style="margin-left: 20px;font-weight: bold;border-style: groove">&nbsp;&nbsp;&nbsp;&nbsp;Contenu Question&nbsp;&nbsp;&nbsp;&nbsp;</span>   <text   name="contenu" style="margin-left: 125px;width: 50%;overflow: hidden;"> <span id="message1" style="border-style: groove;width: 300px"></span> </text><a id='btnGiveCommand1' >   <img src="{{ asset('templates/img/sound.jpg') }}" style="height: 5%;width: 5%"  align=""> </a>
+
+
+
+
+
+    <script>
+        var message = document.querySelector('#message');
+     //   var test={{ app.session.get('maVariable') | json_encode | raw}};
+
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+        var grammar = '#JSGF V1.0;'
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        recognition.onresult = function(event) {
+            var last = event.results.length - 1;
+            var command = event.results[last][0].transcript;
+            message.textContent =  command + '.';
+            //  $.ajax({url:})
+            document.getElementById("codepostal").value=command;
+
+
+
+
+
+
+        };
+        recognition.onspeechend = function() {
+            recognition.stop();
+        };
+        recognition.onerror = function(event) {
+            message.textContent = 'Error occurred in recognition: ' + event.error;
+        }
+        document.querySelector('#btnGiveCommand').addEventListener('click', function(){
+            recognition.start();
+        });
+    </script>
+
+
+    <script>
+        var message1 = document.querySelector('#message1');
+      //  var test={{ app.session.get('maVariable') | json_encode | raw}};
+
+        var SpeechRecognition1 = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList1 = SpeechGrammarList || webkitSpeechGrammarList;
+        var grammar1 = '#JSGF V1.0;'
+        var recognition1 = new SpeechRecognition();
+        var speechRecognitionList1 = new SpeechGrammarList();
+        speechRecognitionList1.addFromString(grammar1, 1);
+        recognition1.grammars = speechRecognitionList1;
+        recognition1.lang = 'en-US';
+        recognition1.interimResults = false;
+        recognition1.onresult = function(event) {
+            var last1 = event.results.length - 1;
+            var command1 = event.results[last1][0].transcript;
+            message1.textContent = command1 + '.';
+            //  $.ajax({url:})
+            document.getElementById("codepostal1").value=command1;
+
+
+
+
+
+
+        };
+        recognition1.onspeechend = function() {
+            recognition1.stop();
+        };
+        recognition1.onerror = function(event) {
+            message1.textContent = 'Error occurred in recognition: ' + event.error;
+        }
+        document.querySelector('#btnGiveCommand1').addEventListener('click', function(){
+            recognition1.start();
+        });
+    </script>
+
+
+    <a href="{{ path('qr_create') }}"><button style="margin-left: 17.5%;margin-left:600px;font-weight: bold" class="btn btn-primary"  > Return </button> </a> <br> <br>
+
+
+
+   {##} <form action="{{ path('qr_createsoundf') }}" method="post">
+        <input type="hidden" name="codepostal" id="codepostal" />
+    <input type="hidden" name="codepostal1" id="codepostal1" />
+
+
+        <button style="margin-left: 17.5%;margin-left:600px;font-weight: bold" class="btn btn-primary" onmouseover="controle()" > Post My Question  </button>
+        {% block javascripts %}
+            <script>
+
+
+                function controle(){
+                    var t = document.getElementById("codepostal").value;
+                    if(t == "") {
+                        alert('Le champ ne peut pas rester vide !! ');
+
+                    }
+
+                }
+
+              //    var codepostal = document.getElementById("message").innerText;
+
+                  //document.querySelector('[name=codepostal]').value = codepostal;
+                 // document.getElementById("codepostal").value=codepostal;
+
+            </script>
+        {% endblock %}
+
+    </form>
+
+
+{% endblock body %}

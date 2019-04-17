@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+
+<br> <br><br><br>
+
+     <!--================Banner Area =================-->
+     <section style="background-image: url('{{ asset('templates/img/1000.jpg') }}');height: 30%"  >
+         <div >
+             <div >
+
+
+             </div>
+         </div>
+     </section>
+     <!--================End Banner Area =================-->
+
+     <!--================Forums Area =================-->
+
+
+
+     <section class="blog_grid_area forums_area"  >
+         <div class="container" >
+             <div class="row" >
+                 <div class="col-md-9" >
+                     <div class="forums_table" >
+                         <div class="table-responsive" >
+                             <table class="table" >
+
+                                 <thead >
+                                 <tr >
+                                     <th class="product_name">Titre</th>
+                                     <th class="product_price">Reponses</th>
+                                     <th class="product_quantity">Posts</th>
+                                     <th class="product_total">Member</th>
+                                 </tr>
+                                 </thead>
+
+                                 <tbody >
+                                 {% if app.user.username is defined %}
+                                     <a href="{{ path('qr_create')}}" > <button class="btn form-control login_btn">Create new topic </button></a>
+                                     <br><br><br>
+                                 {% endif %}
+
+
+                                     {% for question in questions %}
+                                   {#    {{ quest.titre }} #}
+                                 <tr onmouseover="this.style.backgroundColor='#EFEAEA' "onmouseleave="this.style.backgroundColor='white'"  {% if usrs==question.id_test %}  onclick=" window.location = '{{ path('qr_myposts1',{id:question.idq}) }}'  " {% else  %} onclick=" window.location = '{{ path('qr_myposts2',{id:question.idq}) }}'  "{% endif %}>
+                                     <td class="product_name" >
+                                        {{ question.titre_question }}
+                                     </td>
+                                     <td class="product_price"> {{ question.nbr }} </td>
+                                     <td class="product_quantity"> {{ question.nb }}</td>
+                                     <td class="product_total">
+                                         <div class="media">
+                                             <div class="media-left">
+                                                 <img class="img-circle" src="img/members/forums/forums-1.png" alt="">
+                                             </div>
+                                             <div class="media-body">
+                                                 <h5>{{ question.username }}</h5> <br>
+                                                 <h4>{{ question.date_question }}</h4>
+
+                                             </div>
+                                         </div>
+                                     </td>
+                                 </tr>
+
+
+                                 {% else %}
+                                       <tr>
+                                          <td> No Data Found ! !</td>
+
+                                       </tr>
+
+                                 {% endfor %}
+
+
+                                 </tbody>
+                             </table>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-3">
+                     <div class="right_sidebar_area">
+
+                         <aside class="s_widget recent_post_widget">
+                             <div class="s_title">
+                                 <h4>Members </h4>
+                                 <img src="img/widget-title-border.png" alt="">
+                             </div>
+                             {% for login in logins %}
+                             <div class="media">
+                                 <div class="media-left">
+                                     <img class="img-circle" src="img/members/w-members/w-m-1.png" alt="">
+                                 </div>
+                                 <div class="media-body">
+                                     <h4>{{ login.username }}</h4>
+                                     <a href="#">Last Login {%   if (login.p<24)  %} {{ login.p }} hours ago
+                                         {% elseif (login.p>23) %}
+                                         {%  set days=(login.p//24)%}
+                                          {% set hours=(login.p%24) %}
+                                          {{ days }} days and
+
+
+                                          {{ hours }} hours ago</a>
+                                     {% endif %}
+                                 </div>
+                             </div>
+                             {% endfor %}
+
+
+                         </aside>
+
+                         <aside class="s_widget replies_widget">
+                             <div class="s_title">
+                                 <h4>Recent Replies</h4>
+                                 <img src="img/widget-title-border.png" alt="">
+                             </div>
+                             <ul> {% for repl in reply %}
+                                     <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i>{{ repl.contenu_reponse }} ( By <span style="font-style: italic"> {{ repl.username }} </span> To <span style="font-style: italic">{{ repl.t }} </span>)</a></li>
+                                 {% endfor %}
+                             </ul>
+
+                         </aside>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     <!--================End Forums Area =================-->
+
+
+
+
+
+
+ {% endblock %}
