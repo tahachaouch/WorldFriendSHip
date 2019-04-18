@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block transparant %}{% endblock %}
+{% block body %}
+{{ form_start(form) }}
+<br><br><br><br><br>
+    <span style="border-style: groove;border-color: #0b0b0b">
+
+<section>
+
+    <h2 class="lis-font-weight-500" align="center" style="color: #a94442" ><i class="fa fa-signal pr-2 lis-f-14" style="color: #a94442"></i> Book an hebergement</h2><br><br>
+    <div class="row">
+
+    <div class="col-md-5" style="margin-left: 400px">
+        <div class="registration_form_s" >
+
+            <div class="form-group row" >
+                <div class="lis-search" style="color: blue"> <i class="fa fa-calendar lis-primary lis-left-0"></i> </div>
+
+                <label  class="col-12 col-md-2 col-form-label" style="color: #0f3e68">Startdate</label>
+
+                    <div class="form-group" align="center">
+                        {{ form_errors(form.dated) }}
+                        {{ form_widget(form.dated, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'date debut reservation !'}}) }}
+
+                    </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="lis-search" style="color: blue"> <i class="fa fa-calendar lis-primary lis-left-0"></i> </div>
+
+                <label  class="col-12 col-md-2 col-form-label" style="color: #0f3e68">Enddate</label>
+                    <div class="form-group" align="center">
+
+                        {{ form_errors(form.datef) }}
+                        {{ form_widget(form.datef, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'date fin reservation !'}}) }}
+
+                    </div>
+            </div>
+
+                <div class="col-12 col-sm-6">
+                    <div class="lis-search" style="color: blue"> <i class="fa fa-users lis-primary"></i> </div>
+
+                    <div class="form-group">
+
+                        {{ form_errors(form.nombre) }}
+                        {{ form_widget(form.nombre, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Nombre de personnes !'}}) }}
+
+                    </div>
+                </div>
+<br><br><br>
+                {{ form_widget(form.Valider, {'attr': {'class': 'btn form-control login_btn' }}) }}
+            </div>
+        </div>
+    </div>
+</section>
+        </span>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

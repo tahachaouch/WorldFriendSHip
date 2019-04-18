@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+{% block title %} Ajouter Event {% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <br><br><br>
+
+
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="registration_man">
+                <div class="col-md-1">
+                    <img src="{{ asset ('uploads/images/Registration_man.jpg')}}" alt="" width="600" height="650">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="registration_form_s">
+                <h4>Add Event</h4>
+                <br>
+                <br>
+
+                <div class="form-group">
+
+
+                    {{ form_widget(form.title_event,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Event title'}})}}
+
+
+                </div>
+
+                <div class="form-group">
+
+                    {{ form_widget(form.typeEvent, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0'}}) }}
+
+
+                </div>
+                <div class="form-group">
+
+                    {{ form_widget(form.nbrplaceEvent,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Number of places'}})}}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    {{ form_widget(form.description_Event,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Event description'}})}}
+
+                </div>
+                <div class="form-group row">
+                    <label  class="col-12 col-md-2 col-form-label">Start date </label>
+                    <div class="form-group">
+                        {{ form_widget(form.startdateevent)}}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-12 col-md-2 col-form-label">End date </label>
+                    <div class="form-group">
+                        {{ form_widget(form.enddateevent)}}
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(form.adresse_Event,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Event adresse'}})}}
+
+                </div>
+
+
+                <div class="form-group">
+                    {{ form_widget(form.type_hebergement, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0'}}) }}
+
+                </div>
+
+                <div class="form-group">
+                    {{ form_widget(form.adressehebergement,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Hebergement adresse'}})}}
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="example-text-input" class="col-12 col-md-3 col-form-label">Event picture</label>
+                    <div class="col-12 col-md-9">
+                    {{ form_widget(form.image_Event) }}
+
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="reg_chose form-group">
+
+                    {{ form_widget(form.Add, {'attr': {'class': 'btn form-control login_btn' }}) }}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+<div>
+
+</div>
+{% block body%}
+
+    <section>
+        <div class="registration_form_area">
+            <div class="container">
+                <div class="col-sm-6">
+                    <div class="registration_form_s">
+                        <label class="connexion">Inscription</label>
+
+
+                        {{ form_errors(form.reg_email2) }}
+                        {{ form_widget(form.reg_email2, {'attr': {'class': 'input_text required','placeholder':'Email'}}) }}
+
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name, {'attr': {'class': 'input_text required','placeholder':'Full Name'}}) }}
+
+
+                        {{ form_errors(form.plainPassword.first) }}
+                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'input_password required','placeholder':'Password'}}) }}
+
+                        {{ form_errors(form.plainPassword.second) }}
+                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'input_password required', 'id': 'contact_name','placeholder':'Repeat password'}}) }}
+
+                        {{ form_errors(form.datedenaissance) }}
+                        {{ form_widget(form.datedenaissance, {'attr': {'class': 'input_password required', 'id': 'contact_name','placeholder':'Repeat password'}}) }}
+                        <button id="_submit" name="_submit" type="submit">Register</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,724 @@
+/* Welcome area css
+============================================================================================ */
+.welcome_area{
+    padding: 130px 0px 75px 0px;
+    .welcome_title{
+        padding-bottom: 50px;
+    }
+}
+.welcome_item{
+    text-align: center;
+    img{
+        
+    }
+    h4{
+        font-size: 30px;
+        color: $dip;
+        font-family: $ub;
+        font-weight: bold;
+        padding: 26px 0px 8px 0px;
+    }
+    h6{
+        font-size: 16px;
+        color: $dip;
+        font-family: $ub;
+    }
+}
+/* End Welcome area css
+============================================================================================ */
+
+/* Find Soul area css
+============================================================================================ */
+.find_soul_area{
+    padding: 80px 0px 75px 0px;
+    .welcome_title{
+        padding-bottom: 50px;
+    }
+}
+.find_soul_item{
+    text-align: center;
+    img{
+        max-width: 100%;
+    }
+    h4{
+        font-size: 22px;
+        color: $dip;
+        font-family: $ub;
+        font-weight: 500;
+        padding: 25px 0px 10px 0px;
+    }
+    p{
+        font-size: 16px;
+        line-height: 24px;
+        font-family: $ub;
+        color: $dip;
+        max-width: 300px;
+        margin: auto;
+    }
+}
+/* End Find Soul area css
+============================================================================================ */
+
+/* Download area css
+============================================================================================ */
+.download_area{
+    position: relative;
+    padding-top: 80px;
+    background: url(../img/download_bg.jpg) no-repeat scroll center center;
+    background-size: cover;
+    position: relative;
+    &:before{
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        background: rgba(46, 60, 67, .80);
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .download_app_icon{
+        z-index: 3;
+        position: relative;
+        h3{
+            color: #fff;
+            font-size: 48px;
+            font-weight: 300;
+            font-family: $ub;
+            span{
+                color: $baseColor;
+                font-weight: bold;
+                & + span{
+                    color: #fff;
+                }
+            }
+        }
+        h5{
+            font-size: 16px;
+            color: #fff;
+            font-family: $ub;
+            padding: 20px 0px 45px 0px;
+        }
+        ul{
+            padding-bottom: 45px;
+            li{
+                display: inline-block;
+                margin-right: 45px;
+                a{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    font-size: 38px;
+                    display: block;
+                    text-align: center;
+                    background: $baseColor;
+                    line-height: 100px;
+                    color: #fff;
+                    @include transition;
+                }
+                &:hover{
+                    a{
+                        background: #fff;
+                        color: $baseColor;
+                    }
+                }
+                &:last-child{
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+}
+.download_content{
+    background: #343e43;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 3;
+    .item{
+        p{
+            color: #fff;
+            font-family: $ub;
+            font-size: 16px;
+            line-height: 24px;
+            padding-bottom: 15px;
+        }
+        h4{
+            font-size: 16px;
+            color: #fff;
+            font-weight: bold;
+            font-family: $ub;
+            display: inline-block;
+        }
+        ul{
+            display: inline-block;
+            padding-left: 8px;
+            li{
+                display: inline-block;
+                a{
+                    color: $baseColor;
+                }
+            }
+        }
+    }
+    .owl-controls{
+        position: absolute;
+        right: 30px !important;
+        bottom: -15px !important;
+        height: 30px;
+        top: auto !important;
+        .owl-dots{
+            display: none !important;
+        }
+        .owl-nav{
+            .owl-prev{
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+            }
+            .owl-next{
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+            .owl-prev, .owl-next{
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                background: #fff;
+                color: #3d4a50;
+                text-align: center;
+                line-height: 30px;
+                @include transition;
+                &:hover{
+                    background: $baseColor;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.download_full_slider{
+    .download_moblie{
+        text-align: center;
+        .download_m_slider{
+            text-align: center;
+            z-index: 3;
+            position: relative;
+            display: inline-block;
+            img{
+                max-width: 100%;
+                text-align: center;
+                width: auto;
+                display: inline-block;
+            }
+            .download_moblile_slider{
+                max-width: 330px;
+                margin: auto;
+                position: absolute;
+                bottom: 0px;
+                left: 12px;
+                z-index: 5;
+                .owl-controls{
+                    position: absolute;
+                    right: -50px;
+                    top: 125px;
+                    .owl-dots{
+                        .owl-dot{
+                            height: 12px;
+                            width: 12px;
+                            border-radius: 50%;
+                            background: $baseColor;
+                            margin-bottom: 10px;
+                            position: relative;
+                            left: 2px;
+                            &:last-child{
+                                margin-bottom: 0px;
+                            }
+                            &.active{
+                                border: 2px solid #fff;
+                                vertical-align: middle;
+                                box-sizing: content-box;
+                                left: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Download area css
+============================================================================================ */
+
+/* Who we area css
+============================================================================================ */
+.who_we_are_area{
+    padding: 80px 0px;
+    .welcome_title{
+        padding-bottom: 50px;
+    }
+    .who_we_left{
+        h4{
+            font-size: 22px;
+            font-weight: 500;
+            font-family: $ub;
+            color: $pfont;
+            padding-bottom: 10px;
+        }
+        p{
+            line-height: 24px;
+            font-size: 16px;
+            font-family: $ub;
+            color: $pfont;
+            padding-bottom: 25px;
+            & + p{
+                padding-bottom: 0px;
+            }
+        }
+    }
+    .who_we_right{
+        max-width: 100%;
+        border-radius: 5px;
+        img{
+            max-width: 100%;
+        }
+    }
+    &.why_us{
+        .who_we_left{
+            p{
+                padding-bottom: 16px;
+                & + p{
+                    padding-bottom: 0px;
+                }
+            }
+        }
+    }
+}
+/* End  Who we area css
+============================================================================================ */
+
+/* End  Who we area css
+============================================================================================ */
+.best_mate_area{
+    position: relative;
+    overflow: hidden;
+    .best_bg_slider{
+        .rev_slider{
+            ul{
+                li{
+                    z-index: 5 !important;
+                    .tp-bgimg{
+                        z-index: 6 !important;
+                    }
+                }
+            }
+        }
+        .tp-bullets{
+            .tp-bullet{
+                height: 12px;
+                width: 12px;
+                box-shadow: 0 0 0 2px transparent;
+                .tp-bullet-inner{
+                    transform: scale(1);
+                    background: $baseColor;
+                }
+                &:hover{
+                    box-shadow: 0 0 0 2px #fff;
+                    .tp-bullet-inner{
+                        transform: scale(0.6);
+                    }
+                }
+                &.selected{
+                    box-shadow: 0 0 0 2px #fff;
+                }
+            }
+        }
+    }
+    .left_best_content{
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        left: 0px;
+        .left_inner_content{
+            width: 50%;
+            background: rgba(26, 26, 26, .50);
+            min-height: 372px;
+            float: left;
+            z-index: 10;
+            position: relative;
+            .left_inner_right{
+                max-width: 585px;
+                float: right;
+                width: 100%; 
+                h4{
+                    color: #fff;
+                    font-family: $ub;
+                    font-weight: bold;
+                    font-size: 30px;
+                    max-width: 335px;
+                    padding-top: 95px;
+                }
+                p{
+                    font-size: 16px;
+                    color: #fff;
+                    font-family: $ub;
+                    padding: 8px 0px 22px 0px;
+                }
+            }
+        }
+
+    }
+    .right_best_content{
+        width: 50%;
+        background: rgba(26, 26, 26, .50);
+        float: right;
+    }
+}
+/* End  Who we area css
+============================================================================================ */
+
+/* Our Team area css
+============================================================================================ */
+.our_team_area{
+    background: #f4f4f4;
+    padding: 80px 0px;
+    .welcome_title{
+        padding-bottom: 50px;
+    }
+}
+.team_inner_area{
+    .team_items{
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+        img{
+            max-width: 100%;
+        }
+        &:before{
+            content: '';
+            height: 5px;
+            width: 100%;
+            bottom: 0px;
+            left: 0px;
+            position: absolute;
+            background: rgba(231, 76, 60, .95);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            transition: all 200ms ease-in;
+        }
+        .plus_zoom{
+            position: absolute;
+            right: -25px;
+            top: -25px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px 0;
+            border-color: transparent $baseColor transparent transparent;
+            @include transition;
+            &:before{
+                content: "+";
+                color: #fff;
+                position: absolute;
+                left: 31px;
+                top: 3px;
+            }
+        }
+        .hover_details{
+            position: absolute;
+            bottom: -100px;
+            left: 0px;
+            width: 100%;
+            text-align: center;
+            @include transition;
+            h4{
+                font-size: 16px;
+                font-weight: bold;
+                font-family: $ub;
+                color: #fff;
+                padding-bottom: 5px;
+            }
+            h5{
+                font-size: 16px;
+                font-family: $ub;
+                color: #fff;
+                font-weight: 300;
+            }
+        }
+        &:hover{
+            &:before{
+                height: 96px;
+            }
+            .plus_zoom{
+                right: 0px;
+                top: 0px;
+            }
+            .hover_details{
+                bottom: 25px;
+            }
+        }
+    }
+}
+/* End Our Team area css
+============================================================================================ */
+
+/* Members Says area css
+============================================================================================ */
+.members_say_area{
+    background: url(../img/members_says_bg.jpg) no-repeat scroll center center;
+    background-size: cover;
+    position: relative;
+    z-index: 2;
+    padding: 80px 0px;
+    &:before{
+        content: "";
+        background: rgba(0, 0, 0, .75);
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        z-index: -1;
+    }
+    .welcome_white_title{
+        padding-bottom: 50px;
+    }
+    .members_say_inner{
+        max-width: 1030px;
+        margin: auto;
+        text-align: center;
+        p{
+            color: #fff;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            padding: 28px 40px;
+            font-size: 16px;
+            line-height: 24px;
+            font-family: $ub;
+        }
+        h4{
+            padding-top: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: $ub;
+            color: #fff;
+            .left{
+                padding-right: 15px;
+            }
+            .right{
+                padding-left: 15px;
+            }
+        }
+    }
+}
+/* End Members Says area css
+============================================================================================ */
+
+/* Forums area css
+============================================================================================ */
+.forums_area{
+    
+}
+.forums_table{
+    .table-responsive{
+        .table{
+            thead{
+                tr{
+                    border: 1px solid #e0e0e0;
+                    th{
+                        line-height: 44px;
+                        padding: 0px;
+                        border-bottom: 0px;
+                        font-family: $ub;
+                        font-size: 16px;
+                        font-weight: bold;
+                        color: $dip; 
+                        &:first-child{
+                            padding-left: 30px;
+                        }
+                        &:nth-child(2){
+                            width: 100px;
+                        }
+                        &:nth-child(3){
+                            width: 80px;
+                        }
+                        &:last-child{
+                            padding-left: 35px;
+                        }
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    border-bottom: 1px solid #e0e0e0;
+                    border-top: 0;
+                    td{
+                        padding:30px 0px 45px 0px;
+                        font-size: 16px;
+                        font-family: $ub;
+                        color: $pfont;
+                        h3{
+                            color: $pfont;
+                            font-size: 16px;
+                            font-family: $ub;
+                            font-weight: 500;
+                            padding-bottom: 15px;
+                        }
+                        p{
+                            font-size: 16px;
+                            font-family: $ub;
+                            color: $pfont;
+                        }
+                        &:nth-child(2){
+                            padding-left: 10px;
+                        }
+                        &:nth-child(3){
+                            padding-left: 10px;
+                        }
+                        &:first-child{
+                            padding-left: 40px;
+                        }
+                        &:last-child{
+                            
+                        }
+                        .media{
+                            width: auto;
+                            overflow: visible;
+                            padding-top: 10px;
+                            .media-body{
+                                width: auto;
+                                overflow: visible;
+                                h4{
+                                    font-size: 16px;
+                                    font-family: $ub;
+                                    color: $pfont;
+                                    font-weight: 300;
+                                    margin-left: -10px;
+                                    position: relative;
+                                    top: -10px;
+                                }
+                                h5{
+                                    font-size: 16px;
+                                    font-family: $ub;
+                                    color: $pfont;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Forums area css
+============================================================================================ */
+
+/* End Forums area css
+============================================================================================ */
+.author_posts_inners{
+    .nav.navbar-nav{
+        width: 100%;
+        display: block;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 0px 0px 0px 28px;
+        clear: both;
+        overflow: hidden;
+        li{
+            margin-right: 80px;
+            a{
+                padding: 0px;
+                background: transparent;
+                line-height: 44px;
+                font-size: 16px;
+                font-family: $ub;
+                font-weight: bold;
+                color: $dip;
+            }
+            &:last-child{
+                margin-right: 0px;
+            }
+        }
+    }
+    .media{
+        clear: both;
+        padding-left: 50px;
+        padding-top: 30px;
+        margin-top: 0px;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 30px;
+        .media-left{
+            text-align: center;
+            padding-right: 45px;
+            h3{
+                font-size: 16px;
+                color: $pfont;
+                font-family: $ub;
+                font-weight: 500;
+                padding-top: 10px;
+            }
+        }
+        .media-body{
+            width: auto;
+            h4{
+                font-size: 16px;
+                color: $dip;
+                font-family: $ub;
+                font-weight: 500;
+                padding-bottom: 10px;
+            }
+            p{
+                font-size: 16px;
+                line-height: 24px;
+                font-family: $ub;
+            }
+        }
+    }
+}
+/* End Forums area css
+============================================================================================ */
+
+/* Community area css
+============================================================================================ */
+.community_activity{
+    .media{
+        padding: 30px 0px;
+        border-bottom: 1px solid #e0e0e0;
+        margin-top: 0px;
+        .media-left{
+            padding-right: 30px;
+        }
+        .media-body{
+            vertical-align: middle;
+            h3{
+                font-size: 16px;
+                color: $pfont;
+                font-family: $ub;
+                font-weight: 500;
+                padding-bottom: 15px;
+                span{
+                    font-weight: normal;
+                }
+            }
+            h4{
+                font-size: 16px;
+                color: $dip;
+                font-family: $ub;
+            }
+            img{
+                padding-right: 26px;
+                padding-top: 25px;
+                & + img{
+                    padding-right: 0px;
+                }
+            }
+        }
+        &:first-child{
+            padding-top: 0px;
+        }
+    }
+}
+/* End Community area css
+============================================================================================ */

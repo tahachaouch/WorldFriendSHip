@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+{% block title %} show hebergements {% endblock %}
+
+{% block body %}
+
+    <!--================End Banner Area =================-->
+
+    <!--================Blog grid Area =================-->
+    <br><br><br>
+
+    <br><br>
+
+
+    <div class="col-md-3 left_side">
+        <div class="right_sidebar_area">
+
+
+
+            <aside class="s_widget recent_post_widget">
+                <div class="s_title">
+                    <h4>The cheapest</h4>
+                    <img src="../../../web/templates/img/widget-title-border.png" alt="">
+                </div>
+                {% for heb in pagination %}
+
+                    <div class="media">
+
+                        <div class="media-left">
+                            <a href="{{ path('event_single',{'id':heb.id}) }}"><img src="{{ asset('devis/' ~ heb.devisName) }}" alt="" width="70" height="70"></a>
+                        </div>
+                        <div class="media-body">
+                            <h4>{{ heb.nomh }}</h4>
+                            <a href="{{ path('event_single',{'id':heb.id}) }}"><font color="red">view details </font><i class="fa fa-angle-double-right"></i></a>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </aside>
+
+
+            <aside class="s_widget price_widget">
+                <div class="s_title">
+                    <h4>Select Price</h4>
+                    <img src="img/widget-title-border.png" alt="">
+                </div>
+                <div id="price_select"></div>
+                <div class="price_inner">
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                    <a href="#">$50</a>
+                    <a href="#">$350</a>
+                </div>
+            </aside>
+
+
+            <aside class="s_widget social_widget">
+                <div class="s_title">
+                    <h4>Tags</h4>
+                    <img src="../../../web/templates/img/widget-title-border.png" alt="">
+                </div>
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+
+    <section class="blog_grid_area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-9 right_side">
+
+                    <div class="row">
+                        <div class="blog_grid_inner">
+                            {% for h in Hebergement %}
+
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="blog_grid_item">
+                                        <div class="blog_grid_img">
+
+                                            <img src="{{ asset('devis/' ~ h.devisName) }}" alt="" width="400" height="200">
+
+
+
+                                        </div>
+                                        <div class="product_item">
+
+                                        <h4>{{ h.nomh }}</h4>
+                                            <h3>{{ h.prixn }} DT</h3>
+                                            <div class="blog_grid_date">
+                                                <a href="#">{{ h.iduser }}</a>
+                                            </div>
+                                            <a href="{{ path('heberg_single',{'id':h.id}) }}">Show details <i class="fa fa-angle-double-right"></i></a>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}
