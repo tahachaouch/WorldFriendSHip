@@ -1,0 +1,190 @@
+/* Footer area css
+============================================================================================ */
+.footer_area{
+    
+}
+.footer_widgets_area{
+    background: $dip;
+    padding: 75px 0px;
+}
+.f_widget_title{
+    padding-bottom: 28px;
+    h3{
+        font-size: 22px;
+        color: #fff;
+        font-family: $ub;
+        font-weight: 500;
+    }
+}
+.f_widget{
+    
+}
+.vero_widget{
+    h4{
+        font-size: 30px;
+        color: #fff;
+        font-family: $ub;
+        padding-bottom: 15px;
+        span{
+            color: $baseColor;
+        }
+    }
+    p{
+        font-size: 16px;
+        line-height: 24px;
+        color: #fff;
+        font-family: $ub;
+        padding-bottom: 25px;
+        & + p{
+            padding-bottom: 0px;
+        }
+    }
+}
+.information_widget{
+    ul{
+        margin-top: -13px;
+        li{
+            a{
+                font-size: 16px;
+                color: #fff;
+                font-family: $ub;
+                border-bottom: 1px solid #47545a;
+                display: block;
+                line-height: 48px;
+                @include transition;
+            }
+            &:last-child{
+                a{
+                    border: none;
+                }
+            }
+            &:hover{
+                a{
+                    color: $baseColor;
+                }
+            }
+        }
+    }
+}
+.recent_post_widget{
+    ul{
+        margin-top: -14px;
+        li{
+            a{
+                font-size: 16px;
+                color: #fff;
+                font-family: $ub;
+                border-bottom: 1px solid #47545a;
+                display: block;
+                line-height: 48px;
+                @include transition;
+                span{
+                    float: right;
+                }
+            }
+            &:last-child{
+                a{
+                    border: none;
+                }
+            }
+            &:hover{
+                a{
+                    color: $baseColor;
+                }
+            }
+        }
+    }
+}
+.newsletter_widget{
+    p{
+        font-size: 16px;
+        line-height: 24px;
+        color: #fff;
+        font-family: $ub;
+        padding-bottom: 25px;
+    }
+    .input-group{
+        input{
+            height: 50px;
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border: none;
+            padding: 0px 7px 0px 18px;
+            outline: none;
+            box-shadow: none;
+            text-shadow: none;
+            @include placeholder{
+                font-family: $ub;
+                color: $dip;
+                font-size: 16px;
+            }
+        }
+        .input-group-btn{
+            .btn-default{
+                height: 50px;
+                width: 60px;
+                background: $baseColor;
+                border: none;
+                border-top-right-radius: 25px;
+                border-bottom-right-radius: 25px;
+                color: #fff;
+                padding: 0px;
+                outline: none !important;
+                box-shadow: none !important;
+            }
+        }
+    }
+}
+.copyright{
+    .copyright_left{
+        width: 50%;
+        float: left;
+        overflow: hidden;
+        background: #334249;
+        .copyright_text{
+            max-width: 582px;
+            float: right;
+            width: 100%;
+            h4{
+                line-height: 60px;
+                color: #fff;
+                font-family: $ub;
+                font-size: 16px;
+                a{
+                    font-weight: 500;
+                    color: #fff;
+                    &:hover{
+                        color: $baseColor;
+                    }
+                }
+            }
+        }
+    }
+    .copyright_right{
+        float: right;
+        width: 50%;
+        background: $baseColor;
+        .copyright_social{
+            max-width: 582px;
+            width: 100%;
+            text-align: right;
+            ul{
+                li{
+                    display: inline-block;
+                    margin-left: 18px;
+                    a{
+                        color: #fff;
+                        font-size: 16px;
+                        line-height: 60px;
+                        display: block;
+                    }
+                    &:first-child{
+                        margin-left: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+/* End Footer area css
+============================================================================================ */

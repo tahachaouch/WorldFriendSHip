@@ -1,0 +1,32 @@
+{% for Events in Event %}
+
+    <div class="col-md-4 col-sm-6">
+        <div class="blog_grid_item">
+            <div class="blog_grid_img">
+
+                <img src="{{ asset('uploads/images/' ~ Events.imageEvent )}}" alt="" width="400" height="200">
+
+                <div class="blog_share_area">
+
+
+                    <a href="{{ path ('heberg_single',{'id':Events.id}) }}"><i class="fa fa-share-alt" aria-hidden="true"></i>View</a>
+                </div>
+
+            </div>
+            <div class="blog_grid_content">
+                <h3>{{ Events.titleEvent }}</h3>
+                <div class="blog_grid_date">
+                    <a href="#">{{ Events.iduser }}</a>
+
+                    <a href="#">Dating</a>
+                </div>
+                <p> {{ Events.descriptionEvent|slice(0,125) | raw   }}</p>
+
+                <a href="{{ path('event_single',{'id':Events.id}) }}">Read More <i class="fa fa-angle-double-right"></i></a>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endfor %}

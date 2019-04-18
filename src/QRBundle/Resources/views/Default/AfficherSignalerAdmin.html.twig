@@ -1,0 +1,35 @@
+{% extends 'baseadmin.html.twig' %}
+ {% block body %}
+
+  <br> <br> <br> <br>
+
+
+
+
+  <div class="left-align" style="margin-left: 250px" >
+
+   {% for sig in sigas %}
+
+    <span style="font-weight: bold"> Reported Username</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="border-style: groove;border-color: orange">&nbsp;&nbsp;&nbsp;{{  sig.username }}&nbsp;&nbsp;&nbsp; </span><br><br>
+    <span style="font-weight: bold">Titre Question</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="border-style: groove;border-color: green">&nbsp;&nbsp;&nbsp;{{  sig.titre_question }}&nbsp;&nbsp;&nbsp; </span><br><br>
+    <span style="font-weight: bold">Contenu Question</span>&nbsp;&nbsp;
+    <span style="border-style: groove;border-color: blue;width: 500px">&nbsp;&nbsp;&nbsp;{{  sig.contenu_question }}&nbsp;&nbsp;&nbsp; </span> <br><br>
+    <span style="font-weight: bold">Date Question</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="border-style: groove;border-color: purple;width: 500px">&nbsp;&nbsp;&nbsp;{{  sig.date_question }}&nbsp;&nbsp;&nbsp; </span> <br><br>
+    <span style="font-weight: bold">Reported from </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="border-style: groove;border-color: red;width: 500px">&nbsp;&nbsp;&nbsp;{{  sig.date_signaler }}&nbsp;&nbsp;&nbsp; </span>&nbsp;&nbsp;&nbsp;<span style="font-weight: bold">&nbsp;&nbsp;&nbsp; Reason&nbsp;&nbsp;&nbsp;  </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="border-style: groove;border-color: red;width: 500px">&nbsp;&nbsp;&nbsp;{{  sig.cause }}&nbsp;&nbsp;&nbsp; </span>  <br> <br> <br> <a href="{{ path('qr_marquerlu',{id:sig.id,id_q:sig.idq}) }}"  ><img onclick="window.location.reload()" class="img-circle"  style="width: 3%;height: 3%" src="{{ asset('templates/img/eye.png') }}" title="Marquez comme lu"> </a>
+    <a href="{{ path('qr_supprimersignaquest',{id:sig.id,id_q:sig.idq}) }}" ><img class="img-circle"  style="width: 3%;height: 3%;margin-left: 450px" src="{{ asset('templates/img/cross.png') }}" title="Supprimer le message"> </a>   <br><br><br><br> ------------------------------------------------------------------------------------------------------------------------<br><br>
+
+
+
+   {% endfor %}
+  </div>
+
+
+
+
+
+
+{% endblock body %}

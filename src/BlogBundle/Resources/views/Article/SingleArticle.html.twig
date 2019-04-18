@@ -1,0 +1,130 @@
+
+{% extends 'base.html.twig' %}
+{% block title %} Ajouter Articles {% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <br><br><br>
+
+
+
+    <section class="blog_grid_area">
+        <div class="container">
+            <div class="single_blog_middle">
+                <div class="blog_details_content">
+                    <div class="single_blog_image">
+                  <div style="color: #e74c3c"> <h1>{{ titreArticle }}</h1></div>
+                        <div class="admin_date">
+                            <br>
+                            <a href="#"> {{ iduser }} </a>
+                            <a href="#">Posted at {{cree|date('d/m/Y') }}</a>
+
+                        </div>
+                        <img src="/WorldfriendshipProject/web/uploads/images/{{image }}" alt="" style="width: 120% ;height: 10%";  >
+                        <div class="blog_quote">
+                        <p>{{blog|convert_encoding('UTF-8', 'HTML-ENTITIES') | raw }} </p>
+                        </div>
+                        <div class="blog_quote">
+                            <p>{{ tags | join('# ') }}</p>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="blog_standard">
+
+                        <div class="viewrs">
+                            <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>{{ comments }}</a>
+                            {% if app.user==null %}
+                                <a href="{{ path('add_like', {'id':Article.id}) }}"><i class="fa fa-heart" aria-hidden="true"></i>{{ likes }}</a>
+
+                            {% elseif aime==0 %}
+                                <a href="{{ path('add_like', {'id':Article.id}) }}"><i class="fa fa-heart" aria-hidden="true" ></i>{{ likes }}</a>
+                            {% elseif aime!=0 %}
+                                <a href="{{ path('delete_like', {'id':Article.id}) }}"><i class="fa fa-heart" aria-hidden="true"></i>{{ likes }}</a>
+                            {% endif %}
+
+
+                            {{ facebookButton({ 'facebook': {'locale':'fr_FR', 'send':false}} ) }}
+
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+                {% if (app.user==Article.iduser)  %}
+
+                    <a href="{{ path('blog_delete',{'id':Article.id})  }}"><button type="submit" value="LogIn" class="btn form-control login_btn">Delete</button></a>
+                    <a href="{{ path('blog_update',{'id':Article.id}) }}"><button type="submit" value="LogIn" class="btn form-control login_btn">Modifier</button></a>
+
+                {% endif %}
+
+
+                <div class="blog_comment_list">
+                    <h3>Comments</h3>
+                    <div class="blog_comment_item">
+                        {% for comment in Commentaires %}
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="../../../web/templates/img/comment/comment-1.png" alt="">
+                            </div>
+                            <div class="media-body">
+                                <h4>{{ comment.idUser }}</h4>
+
+                                <h5>{{ comment.dateComment | date }}</h5>
+                                <p> {{ comment.commentaire}} </p>
+                                <div class="float-sm-right float-none my-2">{% if (app.user==comment.idUser) %} <a href="{{ path('delete_comment',{'id': comment.id}) }}" class="btn-reply lis-light border lis-brd-light lis-rounded-circle-50"> Delete</a>{% endif %} </div>
+
+
+
+                            </div>
+                        </div>
+
+
+                        {% endfor %}
+
+
+
+                    </div>
+                </div>
+                <ul style="margin-left: 74%"class="pagination list-inline mb-0 text-center text-uppercase lis-f-14 justify-content-center my-4">
+
+                    <li class="p-1 page-item d-none d-sm-inline-block"> {{ knp_pagination_render(Commentaires) }}</li>
+                </ul>
+                <div class="comment_form_area">
+                    {% if (app.user!=null) %}
+                    <h4>Leave a Comment</h4>
+                    <div class="row">
+                        <div class="form_inner">
+                              <div class="form-group col-md-12">
+                                  {{ form_start(form) }}
+                                  {{ form_widget(form.commentaire,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0 pl-4','placeholder':'Review', 'id':'commentaire' }}) }}
+                              </div>
+                            <div class="form-group col-md-12">
+                                <button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endif %}
+        </div><div style="margin-left:37%"> <h2>Scanner votre article </h2></div>
+        <div style="margin-left:40%">     <br>   {{ barcode({code: blog ~ '/' ~ id, type: 'qrcode', format: 'html',height:2,width:2}) }}</div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

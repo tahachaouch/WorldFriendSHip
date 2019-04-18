@@ -1,0 +1,46 @@
+
+
+{% extends 'baseadmin.html.twig' %}
+{% block title %} Ajouter Articles {% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <br><br><br>   {% form_theme form 'bootstrap_4_horizontal_layout.html.twig' %}
+
+    {{ form_start(form) }}
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="registration_man">
+
+            </div>
+        </div>
+        <div class="col-md-5">
+            <h3>Ajout Categorie </h3>
+            <br>
+            <form>
+                <div class="form-group row">
+                    <label for="example-text-input" class="col-form-label">Ajout Categorie</label>
+                    <br><br>
+                    {{ form_widget(form.Categorie, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'saisiez le titre article'}}) }}
+
+                </div>
+                <br>
+
+
+                <div class="col-12 col-sm-12">
+                    {{ form_widget(form.ajouter, {'attr': {'class': 'btn form-control login_btn' }}) }} </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+    {{ form_end(form) }}
+
+{% endblock %}

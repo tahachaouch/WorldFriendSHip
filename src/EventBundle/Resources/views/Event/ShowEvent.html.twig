@@ -1,0 +1,191 @@
+{% extends 'base.html.twig' %}
+{% block title %} Show Event {% endblock %}
+
+{% block body %}
+<br><br><br>
+<br><br><br>
+
+
+{{ form_start(form) }}
+    <section class="blog_grid_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 right_side">
+                    <div class="blog_details_content">
+                        <div class="single_blog_image">
+                            <h3>Blog image standard post</h3>
+                            <div class="admin_date">
+                                <a href="#">By David</a>
+                                <a href="#">03 Sep, 2016</a>
+                                <a href="#">Dating</a>
+                                <a href="#">Posted at 6:00 PM</a>
+                            </div>
+                            <img src="img/blog/single-blog.jpg" alt="">
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
+                            <p>All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                        </div>
+                        <div class="blog_quote">
+                            <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, <span>so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain.</span> These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents.</p>
+                        </div>
+                        <div class="blog_standard">
+                            <h4>The standard chunk of Lorem Ipsum used since</h4>
+                            <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. </p>
+                            <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>
+                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+                            <div class="viewrs">
+                                <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>16</a>
+                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>95</a>
+                                <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog_comment_list">
+                        <h3>Comments</h3>
+                        <div class="blog_comment_item">
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="img/comment/comment-1.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Mark Ronson</h4>
+                                    <h5>Sep 14,2016 at 11:00 am</h5>
+                                    <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. </p>
+                                    <a href="#"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                </div>
+                            </div>
+                            <div class="media reply_comment">
+                                <div class="media-left">
+                                    <img src="img/comment/comment-2.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Mark Ronson</h4>
+                                    <h5>Sep 14,2016 at 11:00 am</h5>
+                                    <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. </p>
+                                    <a href="#"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="img/comment/comment-3.png" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Mark Ronson</h4>
+                                    <h5>Sep 14,2016 at 11:00 am</h5>
+                                    <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. </p>
+                                    <a href="#"><i class="fa fa-reply" aria-hidden="true"></i>Reply</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment_form_area">
+                        <h4>Leave a Comment</h4>
+                        <div class="row">
+                            <form action="#" class="form_inner">
+                                <div class="form-group col-md-4">
+                                    <input type="text" class="form-control" id="name" placeholder="Name">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <textarea id="comment" placeholder="Comment" rows="1"></textarea>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <button type="submit" value="LogIn" class="btn form-control login_btn">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 right_side">
+                    <div class="right_sidebar_area">
+                        <aside class="s_widget categories_widget">
+                            <div class="s_title">
+                                <h4>Categories</h4>
+                                <img src="img/widget-title-border.png" alt="">
+                            </div>
+                            <ul>
+                                <li><a href="#"><img src="img/categories-list.png" alt="">Design</a></li>
+                                <li><a href="#"><img src="img/categories-list.png" alt="">Business</a></li>
+                                <li class="active"><a href="#"><img src="img/categories-list.png" alt="">Dating</a></li>
+                                <li><a href="#"><img src="img/categories-list.png" alt="">Web Design</a></li>
+                                <li><a href="#"><img src="img/categories-list.png" alt="">Featured</a></li>
+                                <li><a href="#"><img src="img/categories-list.png" alt="">Technology</a></li>
+                                <li><a href="#"><img src="img/categories-list.png" alt="">Photography</a></li>
+                            </ul>
+                        </aside>
+                        <aside class="s_widget recent_post_widget">
+                            <div class="s_title">
+                                <h4>Recent Post</h4>
+                                <img src="img/widget-title-border.png" alt="">
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="img/blog/recent-post/recent-post-1.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Blog Image Post</h4>
+                                    <a href="#">14 Sep, 2016 at 08:00 Pm</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="img/blog/recent-post/recent-post-2.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Blog Standard Post</h4>
+                                    <a href="#">14 Sep, 2016 at 08:00 Pm</a>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <div class="media-left">
+                                    <img src="img/blog/recent-post/recent-post-3.jpg" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <h4>Blog Image Post</h4>
+                                    <a href="#">14 Sep, 2016 at 08:00 Pm</a>
+                                </div>
+                            </div>
+                        </aside>
+                        <aside class="s_widget tags_widget">
+                            <div class="s_title">
+                                <h4>Tags</h4>
+                                <img src="img/widget-title-border.png" alt="">
+                            </div>
+                            <ul>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Web</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">Dating</a></li>
+                                <li><a href="#">Art</a></li>
+                                <li><a href="#">Corporate</a></li>
+                            </ul>
+                        </aside>
+                        <aside class="s_widget social_widget">
+                            <div class="s_title">
+                                <h4>Tags</h4>
+                                <img src="img/widget-title-border.png" alt="">
+                            </div>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{{ form_end(form) }}
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+
+
+     <!--================Banner Area =================-->
+<br><br><br><br>
+
+     <section>
+         <img src="/WorldfriendshipProject/web/uploads/images/oo (2).jpg" alt="" width="1400" height="400">
+     </section>
+     <!--================End Banner Area =================-->
+
+     <!--==========End shop page banner area==========-->
+     <section class="shoping_cart_area">
+         <div class="container">
+             <div class="shoping_cart_inner">
+                 <div class="table-responsive" id="Parent">
+
+                 </div>
+             </div>
+            <div class="row cart_cupon_area">
+                 <div class="col-md-7">
+                     <div class="apply_cupon_area">
+                         <a href="{{ path('shop') }}" class="btn login_btn">
+                         Continuer Shopping</a>
+                     </div>
+                 </div>
+
+                <br>
+                <br>
+                <br>
+                 <div class="col-md-5">
+                     <div class="cart_box">
+                         <h5>Total Panier</h5>
+                         <div class="cart_box_inner">
+                             <h6>Total <span>{{ total }} TND</span></h6>
+                             <h6>Remise <span>-{{ remise }} TND</span></h6>
+                             <h6>Frais Livraison <span>15 TND</span></h6>
+                         </div>
+                         <div class="total_cart_area">
+                             <div class="total_cart_inner">
+                                 <h4>Total <span>{{ totalfinal }} TND</span></h4>
+                                 <a href="{{ path('commande_checkout') }}" class="btn login_btn">Passer la Commande</a>
+
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </section>
+     {% block javascripts %}
+     <script>
+
+         $(document).ready(function(){
+
+             $.ajax({
+                 url: "{{path('getcart')}}",
+                 method: "GET",
+                 dataType: 'json',
+                 success: function(data, status){
+                     $('#Parent').html(data);
+
+
+                 }
+             });
+         });
+
+
+     </script>
+
+     {% endblock%}
+
+ {% endblock %}

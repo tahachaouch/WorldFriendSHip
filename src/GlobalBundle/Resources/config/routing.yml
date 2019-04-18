@@ -1,0 +1,4 @@
+layout:
+    path:     /layout
+    defaults: { _controller: GlobalBundle:Default:layout }
+

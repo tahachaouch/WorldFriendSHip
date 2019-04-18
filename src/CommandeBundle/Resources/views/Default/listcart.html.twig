@@ -1,0 +1,142 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th class="product_name">Produit</th>
+        <th class="product_price">Prix</th>
+        <th class="product_quantity">Quantité</th>
+        <th class="product_total">Total</th>
+        <th class="remove_cart">Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for prod in produits  %}
+        <tr>
+            <td class="product_name">
+                <div class="media">
+                    <input id="prod" type="text" value="{{ prod.idProd }}" hidden>
+                    <input id="panier" type="text" value="{{ prod.idPanier }}" hidden>
+                    <div class="media-left">
+                        <a href="#">
+                            <img class="media-object" src="{{ asset('uploads/images/' ~ prod.image) }}" alt="" style="width:80px ; height:80px">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4>{{prod.nomProd}}</h4>
+                    </div>
+                </div>
+            </td>
+            <td class="product_price">{{prod.prix}}</td>
+            <td class="product_quantity">
+                <div class="media">
+                    <div class="media-left">
+                        <a>
+                            <img id="btnup" class="media-object" height="15" width="15" src="{{ asset ('templates/img/shop/icons/arrow-up.png')}}" alt="">
+                        </a>
+                        {% if prod.quantite > 1 %}
+                            <a>
+                                <img id="btdown" class="media-object" height="15" width="15" src="{{ asset ('templates/img/shop/icons/arrow-down.png')}}" alt="">
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="media-body">
+                        <h4>{{prod.quantite}}</h4>
+                        <input id="qte" type="text" value="{{prod.quantite}}" hidden>
+                    </div>
+                </div>
+            </td>
+            <td class="product_total">{{prod.quantite * prod.prix}}</td>
+
+
+            <td class="pro-remove"><a data-toggle="modal" data-target="#exampleModal" onclick="onPressDelete ({{ prod.idProd }})"><i class="fa fa-trash-o"></i></a></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #ea4335">
+                <h5 class="modal-title" id="exampleModalLabel">Supprimer un Produit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Voulez-vous bien supprimer ce Produit ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                <a   class="btn btn-primary" href="" id="btnDelete" style="background-color: #ea4335; border-color: white">Supprimer</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#btnup').click(function () {
+        var qte = $('#qte').val();
+        var prod = $('#prod').val();
+        var panier = $('#panier').val();
+
+        $.ajax({
+            url: '/WorldfriendshipProject/web/app_dev.php/commande/cart/update',
+            type: "POST",
+            dataType: "json",
+            data: {
+                qte: qte,
+                prod: prod,
+                panier:panier
+            },
+            async: true,
+            success: function (data) {
+                $.ajax({
+                    url: "{{path('getcart')}}",
+                    method: "GET",
+                    dataType: 'json',
+                    success: function(data, status){
+                        $('#Parent').html(data);
+
+
+                    }
+                });
+            }
+        })
+    });
+    $('#btdown').click(function () {
+        var qte = $('#qte').val();
+        var prod = $('#prod').val();
+        var panier = $('#panier').val();
+
+        $.ajax({
+            url: '/WorldfriendshipProject/web/app_dev.php/commande/cart/updatedown',
+            type: "POST",
+            dataType: "json",
+            data: {
+                qte: qte,
+                prod: prod,
+                panier:panier
+            },
+            async: true,
+            success: function (data) {
+                $.ajax({
+                    url: "{{path('getcart')}}",
+                    method: "GET",
+                    dataType: 'json',
+                    success: function(data, status){
+                        $('#Parent').html(data);
+
+
+                    }
+                });
+            }
+        })
+    });
+
+    function onPressDelete (id )
+    {
+        newLien = '/WorldfriendshipProject/web/app_dev.php/commande/cart/delete/' + id;
+        document.getElementById('btnDelete').href = newLien;
+    }
+
+
+</script>

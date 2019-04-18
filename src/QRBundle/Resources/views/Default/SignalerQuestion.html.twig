@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+
+<br> <br><br>
+
+<!--================Banner Area =================-->
+<section style="background-image: url('{{ asset('templates/img/1000.jpg') }}');height: 30%"  >
+    <div >
+        <div >
+
+
+        </div>
+    </div>
+</section>
+<!--================End Banner Area =================-->
+
+
+
+
+     <section class="check_out_area" >
+         <div class="container">
+             <div class="row">
+                 <div class="col-md-8">
+                     <div class="row">
+                         <div class="check_out_left">
+
+
+
+                             <div class="form-group col-md-12" style="border-style: solid;margin-left: 20%;border-color: lightgrey">
+                                 {% for question in questions %}
+                                 <textarea style="height: 60px;background-color: white;" class="form-control" rows="1" placeholder="" readonly>{{ question.titre_question}}</textarea>
+
+                             </div>
+
+                             <div class="form-group col-md-12" style="border-style: solid;margin-left: 20%;border-color: lightgrey">
+
+                                 <textarea style="height: 220px;background-color: white" class="form-control" rows="1" placeholder="" readonly>{{ question.contenu_question}}</textarea>
+
+                             </div>
+
+                         </div>
+                     </div>
+                 </div>
+
+             </div>
+         </div>
+     </section>
+
+
+{{ form_start(form) }}
+{{ form_widget(form.cause) }}
+{{ form_end(form) }}
+<br>
+     <a href="{{ path('qr_myposts2',{id:question.id_question}) }}"><button style="margin-left: 17.5%;margin-left:600px;font-weight: bold" class="btn btn-primary"  > Return </button> </a>
+                                 {% endfor %}
+
+{% endblock body %}

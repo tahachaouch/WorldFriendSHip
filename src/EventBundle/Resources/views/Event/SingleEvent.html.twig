@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Single Event {% endblock %}
+
+{% block body %}
+<br><br><br>
+<br>
+    <section class="blog_grid_area">
+        <div class="container">
+            <div class="">
+                <div class="">
+                    <div id="awaw" style='height: 350px;'></div>
+                </div>
+            <div class="single_blog_middle">
+                <div class="blog_details_content">
+                    <div class="single_blog_image">
+                        <h3>{{ titleEvent }}</h3>
+                        <div class="admin_date">
+                            <a href="#">{{ iduser }}</a>
+                            <a href="#">{{ startdateevent|date }}</a>
+                            <a href="#">{{ enddateevent|date }}</a>
+                            <a href="#">{{ adresseEvent }}</a>
+                        </div>
+                        <img src="{{ asset('uploads/images/' ~ imageEvent )}}" alt="">
+                    </div>
+
+                    <div class="blog_standard">
+                        <h4>{{ typeEvent }}</h4>
+                        <p>{{ descriptionEvent }}</p>
+                        <div class="viewrs">
+                            <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>{{ comments }}</a>
+                            {% if app.user==null %}
+                                <a href="{{ path('App_bon_plan_add_like', {'id':id}) }}"><i class="fa fa-heart" aria-hidden="true"></i>{{ likes }}</a>
+
+                            {% elseif aime==0 %}
+                                <a href="{{ path('App_bon_plan_add_like', {'id':id}) }}"><i class="fa fa-heart" aria-hidden="true" ></i>{{ likes }}</a>
+                            {% elseif aime!=0 %}
+                                <a href="{{ path('App_bon_plan_delete_like', {'id':id}) }}"><i class="fa fa-heart" aria-hidden="true"></i>{{ likes }}</a>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+<br><br>
+                <div class="container">
+                    <div class="form-group col-md-12">
+                        {% if (app.user==iduser) %}
+                        <a href="{{ path('update_event',{'id':id}) }}"><button type="submit" value="LogIn" class="btn form-control login_btn">Edit</button></a>
+                        <a href="{{ path('delete_event',{'id':id}) }}"><button type="submit" value="LogIn" class="btn form-control login_btn">Delete</button></a><br><br>
+
+                        {% endif %}
+                    </div>
+                    {% if app.user==null %}
+                        <i href="#" class="lis-light rounded-left"><i><a href="{{  path('add_part', {'id':id }) }}" class="btn btn-primary btn-default text-white">{{ part }} Participer</a> </i></i>
+
+                    {% elseif participe==0 %}
+
+                        <i href="#" class="lis-light rounded-left"><i><a href="{{  path('add_part', {'id':id }) }}" class="btn btn-primary btn-default text-white">{{ part }} Participer</a> </i></i>
+
+
+                        <i href="#" class="lis-light rounded-left"><i><a href="{{  path('delete_part', {'id':id }) }}" class="btn btn-primary btn-default">Ne pas participer</a></i> </i>
+                   {% endif %}
+
+                    <br>
+
+
+                    </div>
+                </div>
+                <br><br>
+                    <div class="container">
+
+                    <div class="blog_comment_item">
+                        {% for comment in Commentaires %}
+
+                        <div class="media">
+                            <div class="media-left">
+                                <img src="img/comment/comment-1.png" alt="">
+                            </div>
+                            <div class="media-body">
+                                <h4>{{ comment.iduser }}</h4>
+                                <h5 align="right" >{{ comment.date | date }}</h5>
+                                <p>{{ comment.cmt }}</p>
+                                <div class="float-sm-right float-none my-2">{% if (app.user==comment.iduser) %} <a href="{{ path('App_bon_plan_delete_comment',{'id': comment.id}) }}" class="btn-reply lis-light border lis-brd-light lis-rounded-circle-50"> Delete</a>{% endif %} </div>
+
+                            </div>
+                        </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                        <ul class="pagination_area">
+
+                            <li class="p-1 page-item d-none d-sm-inline-block"> {{ knp_pagination_render(Commentaires) }}</li>
+                        </ul>
+
+
+                </div>
+                </div>
+                <div class="comment_form_area">
+                    {% if (app.user!=null) %}
+
+                    <h4>Leave a Comment</h4>
+                    <div class="row">
+                        {{ form_start(form) }}
+
+                            <div class="form-group col-md-12">
+                                {{ form_widget(form.cmt,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0 pl-4','placeholder':'Review', 'id':'cmt' }}) }}
+                            </div>
+                            <div class="form-group col-md-12">
+                                {{ form_widget(form.Add, {'attr': {'class': 'btn form-control login_btn' }}) }}
+                            </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                    {% else %}
+                        <p>Connectez vous pour ajouter un commentaire</p>
+                    {% endif %}
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+{% endblock %}
+

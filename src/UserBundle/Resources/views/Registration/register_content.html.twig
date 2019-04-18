@@ -1,0 +1,160 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+<div>
+
+</div>
+{% block body%}{% trans_default_domain 'FOSUserBundle' %}
+
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+    {% block body %}
+        <style type="text/css">
+
+
+            .login-page {
+                width: 360px;
+                padding: 8% 0 0;
+                margin: auto;
+            }
+            .form {
+                position: relative;
+                z-index: 1;
+                background: #FFFFFF;
+                max-width: 360px;
+                margin: 0 auto 100px;
+                padding: 45px;
+                text-align: center;
+                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+            }
+            .form input {
+                font-family: "Roboto", sans-serif;
+                outline: 0;
+                background: #f2f2f2;
+                width: 100%;
+                border: 0;
+                margin: 0 0 15px;
+                padding: 15px;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+            .form button {
+                font-family: "Roboto", sans-serif;
+                text-transform: uppercase;
+                outline: 0;
+                background: #ff214f;
+                width: 100%;
+                border: 0;
+                padding: 15px;
+                color: #FFFFFF;
+                font-size: 14px;
+                cursor: pointer;
+            }
+            .form button:hover,.form button:active,.form button:focus {
+                background: #ff214f;
+            }
+            .form .message {
+                margin: 15px 0 0;
+                color: #b3b3b3;
+                font-size: 12px;
+            }
+            .form .message a {
+                color: #ff214f;
+                text-decoration: none;
+            }
+
+            body {
+                font-family: "Roboto", sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            .connexion{
+                line-height: 1.1;
+                font-size: 2rem;
+                font-weight: 300;
+            }
+
+        </style>
+        <section>
+            <div class="login-page">
+                <div class="form">
+                    <label class="connexion">Inscription</label>
+
+                    {{ form_errors(form.username) }}
+                    {{ form_widget(form.username, {'attr': {'class': 'input_text required','placeholder':'Pseudo'}}) }}
+
+                    {{ form_errors(form.email) }}
+                    {{ form_widget(form.email, {'attr': {'class': 'input_text required','placeholder':'Adresse mail'}}) }}
+
+                    {{ form_errors(form.name) }}
+                    {{ form_widget(form.name, {'attr': {'class': 'input_text required','placeholder':'Nom'}}) }}
+                    {{ form_errors(form.surname) }}
+                    {{ form_widget(form.surname, {'attr': {'class': 'input_text required','placeholder':'Prénom'}}) }}
+
+                    {{ form_errors(form.plainPassword.first) }}
+                    {{ form_widget(form.plainPassword.first, {'attr': {'class': 'input_password required','placeholder':'Mot de passe'}}) }}
+
+                    {{ form_errors(form.plainPassword.second) }}
+                    {{ form_widget(form.plainPassword.second, {'attr': {'class': 'input_password required', 'id': 'contact_name','placeholder':'Confirmer mot de passe'}}) }}
+                    {{ form_errors(form.DevisFile) }}
+                    {{ form_widget(form.DevisFile) }}
+                    {{ form_errors(form.facebook) }}
+                    {{ form_widget(form.facebook, {'attr': {'class': 'input_text required','placeholder':'www.facebook.com/votre_profil'}}) }}
+
+                    {{ form_errors(form.phone) }}
+                    {{ form_widget(form.phone, {'attr': {'class': 'input_text required','placeholder':'Numero de telephone'}}) }}
+
+                    {{ form_errors(form.address) }}
+                    {{ form_widget(form.address, {'attr': {'class': 'input_text required','placeholder':'Adresse'}}) }}
+
+                    {{ form_errors(form.role) }}
+                    {{ form_widget(form.role, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0'}}) }}
+
+                    <button id="_submit" name="_submit" type="submit">Inscription</button>
+                    <p class="message">Vous possédez déja un compte ? <a href="{{ path('fos_user_security_login') }}">Connexion</a></p>
+                </div>
+            </div>
+        </section>
+        {{ form_end(form) }}
+    {% endblock %}
+
+    <section>
+        <div class="registration_form_area">
+            <div class="container">
+                <div class="col-sm-6">
+                    <div class="registration_form_s">
+                        <label class="connexion">Inscription</label>
+
+
+                        {{ form_errors(form.email) }}
+                        {{ form_widget(form.email, {'attr': {'class': 'input_text required','placeholder':'Adresse mail'}}) }}
+
+
+                        {{ form_errors(form.name) }}
+                        {{ form_widget(form.name, {'attr': {'class': 'input_text required','placeholder':'Nom'}}) }}
+
+                        {{ form_errors(form.plainPassword.first) }}
+                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'input_password required','placeholder':'Mot de passe'}}) }}
+
+                        {{ form_errors(form.plainPassword.second) }}
+                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'input_password required', 'id': 'contact_name','placeholder':'Confirmer mot de passe'}}) }}
+
+                        {{ form_errors(form.datedenaissance) }}
+                        {{ form_widget(form.datedenaissance, {'attr': {'class': 'input_password required', 'id': 'contact_name','placeholder':'Repeat password'}}) }}
+                        <button id="_submit" name="_submit" type="submit">Register</button>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    {{ form_end(form) }}
+{% endblock %}

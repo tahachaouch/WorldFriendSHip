@@ -1,0 +1,305 @@
+/* Main Menu area css
+============================================================================================ */
+.header_menu_area{
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 15;
+    .navbar-default{
+        background: rgba(0, 0, 0, .68);
+        border-radius: 0px;
+        border: none;
+        box-shadow: none;
+        border-bottom: 1px solid $baseColor;
+        margin-bottom: 0px;
+        .navbar-header{
+            .navbar-brand{
+                padding: 0px;
+                margin-left: 0px;
+                line-height: 77px;
+                img{
+                    display: inline-block;
+                }
+            }
+        }
+        .navbar-collapse{
+            text-align: right;
+            .navbar-nav{
+                float: none;
+                text-align: right;
+                display: inline-block;
+                margin-right: 20px;
+                li{
+                    float: none;
+                    display: inline-block;
+                    margin-right: 35px;
+                    a{
+                        padding: 0px;
+                        line-height: 80px;
+                        background: transparent;
+                        color: #fff;
+                        position: relative;
+                        @include transition;
+                        text-shadow: none;
+                        font-size: 14px;
+                        font-family: $ub;
+                        &:before{
+                            content: '';
+                            background: $baseColor;
+                            height: 3px;
+                            width: 100%;
+                            left: 0px;
+                            bottom: -2px;
+                            position: absolute;
+                            transform: scale(0);
+                            @include transition;
+                        }
+                    }
+                    &:last-child{
+                        margin-right: 0px;
+                    }
+                    &:hover, &.active{
+                        a{
+                            color: $baseColor;
+                            &:before{
+                                transform: scale(1);
+                            }
+                        }
+                    }
+                    &.submenu{
+                        .dropdown-menu{
+                            padding: 0px;
+                            margin: 0px 0px 0px 0px;
+                            border: none;
+                            left: -50%;
+                            @include transition;
+                            border-top: 1px solid $baseColor;
+                            border-bottom: 1px solid $baseColor;
+                            border-radius: 0px;
+                            text-align: center;
+                            background: transparent;
+                            @media(min-width: 991px){
+                                display: block;
+                                top: 150%;
+                                transition: all 300ms ease-in;
+                                opacity: 0;
+                                visibility: hidden;
+                                min-width: 170px;
+                            }
+                            li{
+                                display: block;
+                                margin-right: 0px;
+                                a{
+                                    line-height: 40px;
+                                    display: block;
+                                    color: #fff;
+                                    position: relative;
+                                    text-shadow: none;
+                                    border-bottom: 1px solid $black;
+                                    background: rgba(0, 0, 0, .62);
+                                    font-size: 14px;
+                                    font-family: $ub;
+                                    &:before{
+                                        display: none;
+                                    }
+                                }
+                                &:hover{
+                                    a{
+                                        color: $baseColor;
+                                        background: rgba(0, 0, 0, .80);
+                                    }
+                                }
+                                &:last-child{
+                                    a{
+                                        border: none;
+                                    }
+                                }
+                            }
+                        }
+                        &:hover{
+                            .dropdown-menu{
+                                @media(min-width:768px){
+                                    top: 101%;
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .navbar-nav.navbar-right{
+                position: relative;
+                margin-right: -15px;
+                &:before{
+                    content: '';
+                    height: 30px;
+                    left: 0px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 1px;
+                    background: #717171;
+                    position: absolute;
+                }
+                li{
+                    margin-right: 0px;
+                    margin-left: 20px;
+                    position: relative;
+                    a{
+                        outline: none !important;
+                        i{
+                            padding-right: 10px;
+                        }
+                    }
+                    &.flag_drop{
+                        
+                        .selector{
+                            .dd.ddcommon{
+                                width: auto !important;
+                                min-width: 100px;
+                                border: none;
+                                outline: none;
+                                color: #fff;
+                                font-size: 14px;
+                                font-family: $ub;
+                                .divider{
+                                    display: none;
+                                }
+                                .ddArrow.arrowoff{
+                                    
+                                }
+                                .ddTitle{
+                                    .ddTitleText {
+                                        padding: 0px 15px 0px 0px;
+                                        position: relative;
+                                        &:before{
+                                            content: "\f107";
+                                            font: normal normal normal 14px/1 FontAwesome;
+                                            position: absolute;
+                                            right: 0px;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                        }
+                                        img{
+                                            margin-right: 8px;
+                                        }
+                                    }
+                                }
+                                .ddChild{
+                                    border: none;
+                                    border-radius: 0px;
+                                    box-shadow: none;
+                                    background: transparent;
+                                    top: 53px !important;
+                                    height: 160px !important;
+                                    ul{
+                                        border-top: 1px solid $baseColor;
+                                        border-bottom: 1px solid $baseColor;
+                                        box-sizing: border-box;
+                                        li{
+                                            margin: 0px;
+                                            padding: 0px;
+                                            background: rgba(0, 0, 0, .62);
+                                            color: #fff;
+                                            min-width: 100px;
+                                            border-radius: 0px;
+                                            text-align: center;
+                                            font-size: 14px;
+                                            font-family: $ub;
+                                            line-height: 38px;
+                                            border-bottom: 1px solid $black;
+                                            @include transition;
+                                            img{
+                                                
+                                            }
+                                            span{
+                                                color: #fff;
+                                                font-size: 14px;
+                                                font-family: $ub;
+                                            }
+                                            &:hover{
+                                                background: rgba(0, 0, 0, .80);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &:last-child{
+                        margin-left: 25px;
+                        position: relative;
+                        &:before{
+                            content: '';
+                            height: 30px;
+                            left: -6px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 1px;
+                            background: #717171;
+                            position: absolute;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.white_menu{
+        top: 50px;
+        .navbar-default{
+            background: #fff;
+            border-color: #fff;
+            .navbar-collapse{
+                .navbar-nav{
+                    li{
+                        a{
+                            color: $dip;
+                            font-weight: 500;
+                        }
+                        &:hover, &.active{
+                            a{
+                                color: $baseColor
+                            }
+                        }
+                    }
+                }
+                .navbar-nav.navbar-right{
+                    &:before{
+                        background: #ccc;
+                    }
+                    li{
+                        &.flag_drop{
+                            &:before{
+                                background: #ccc;
+                            }
+                            .selector{
+                                .ddcommon{
+                                    .ddTitle{
+                                        .ddTitleText {
+                                            .ddlabel{
+                                                color: $dip;
+                                            }
+                                            &:before{
+                                                color: $dip;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.affix{
+            top: 0px;
+        }
+    }
+    &.affix{
+        position: fixed;
+        z-index: 18;
+    }
+}
+/* End Main Menu area css
+============================================================================================ */

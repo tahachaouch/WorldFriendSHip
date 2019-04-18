@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Single Event {% endblock %}
+
+{% block body %}
+<br><br><br>
+<br>
+<section class="shop_area product_details_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-5">
+                      <div class="product_details_right_content">
+                          <img src="{{ asset('devis/' ~ image )}}" alt="" height="470" width="470">
+<br>
+                          <div class="product_details_text">
+                              <br>
+                           <h2>{{ nom }}</h2>
+                           <h3>Prix/Nuitée : {{ prix }} DT</h3>
+
+                           <p>Appeler le :{{ phone }}</p>
+                         </div>
+<br>
+                          <a href="{{ path('delete_heberg',{'id':id}) }}"><button type="submit" value="LogIn" class="btn form-control login_btn"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Delete</button></a>
+                          <a href="{{ path('update_heberg',{'id':id}) }}"><button type="submit" value="LogIn" class="btn form-control login_btn"><i class="fa fa-heart" aria-hidden="true"></i>Update</button>
+                       </div>
+                        <br><br>
+                 </div>
+            <div class="product_description">
+                <ul class="nav nav-tabs" role="tablist">
+                    <a href="{{ path('reserver_ajout',{'id':id}) }}"><button type="submit" value="LogIn" class="btn form-control login_btn"><i aria-hidden="true"></i>Reserver</button></a>
+
+                </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active" id="home">
+                  {{ descr }}
+                </div>
+            </div>
+            </div>
+         </div>
+    </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,83 @@
+event_homepage:
+    path:     /
+    defaults: { _controller: EventBundle:Default:index }
+
+event_affiche:
+    path:     /affiche
+    defaults: { _controller: EventBundle:Event:show }
+
+event_single:
+    path:     /single/{id}
+    defaults: { _controller: EventBundle:Event:single }
+
+delete_event:
+    path:     /delete_event/{id}
+    defaults: { _controller: EventBundle:Event:delete }
+
+update_event:
+    path:     /update_event/{id}
+    defaults: { _controller: EventBundle:Event:update }
+
+App_bon_plan_add_like:
+    path:     /addLike/{id}
+    defaults: { _controller: EventBundle:Event:addLike }
+
+App_bon_plan_delete_like:
+    path:     /deleteLike/{id}
+    defaults: { _controller: EventBundle:Event:deleteLike }
+
+App_bon_plan_delete_comment:
+    path:     /deleteComment/{id}
+    defaults: { _controller: EventBundle:Event:deleteComment}
+
+add_part:
+    path:     /addparticipe/{id}
+    defaults: { _controller: EventBundle:Event:addparticipe }
+
+delete_part:
+    path:     /deleteparticipe/{id}
+    defaults: { _controller: EventBundle:Event:deleteparticipe }
+
+heberg_ajout:
+    path:     /hajout
+    defaults: { _controller: EventBundle:Hebergement:addh }
+
+heberg_list:
+    path:     /listh
+    defaults: { _controller: EventBundle:Hebergement:listh }
+
+heberg_single:
+    path:     /singleh/{id}
+    defaults: { _controller: EventBundle:Hebergement:singleh }
+
+delete_heberg:
+    path:     /delete_heberg/{id}
+    defaults: { _controller: EventBundle:Hebergement:deleteh }
+
+update_heberg:
+    path:     /update_heberg/{id}
+    defaults: { _controller: EventBundle:Hebergement:updateh }
+
+App_bon_plan_article_jsonx:
+    path:     /json/{title}
+    defaults: { _controller: EventBundle:Event:searchAjax }
+
+
+event_ajout:
+    path:     /ajout
+    defaults: { _controller: EventBundle:Event:add }
+event_list:
+    path:     /list
+    defaults: { _controller: EventBundle:Event:list }
+
+reserver_ajout:
+    path:     /reserver/{id}
+    defaults: { _controller: EventBundle:Reservation:ajoutReservation }
+
+calendar:
+    path:     /calendar
+    defaults: { _controller: EventBundle:Reservation:calendar }
+
+type_single:
+    path:     /singleCategorie/{typeEvent}
+    defaults: { _controller: EventBundle:Event:listtype}

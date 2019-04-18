@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block transparant %}{% endblock %}
+{% block body %}
+{{ form_start(form) }}
+<br><br><br><br><br>
+
+<section>
+
+    <h2 class="lis-font-weight-500" align="center" ><i class="fa fa-signal pr-2 lis-f-14"></i> Book an hebergement</h2><br><br>
+    <div class="col-md-5">
+        <div class="registration_form_s">
+            <div class="row">
+                <label  class="col-12 col-md-2 col-form-label">Start date </label>
+
+                    <div class="form-group">
+                        {{ form_errors(form.dated) }}
+                        {{ form_widget(form.dated, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'date debut reservation !'}}) }}
+
+                        <div class="lis-search"> <i class="fa fa-calendar lis-primary lis-left-0"></i> </div>
+                    </div>
+                </div>
+
+
+                    <div class="form-group row">
+                        <label  class="col-12 col-md-2 col-form-label">End date </label>
+                    <div class="form-group">
+                        {{ form_errors(form.datef) }}
+                        {{ form_widget(form.datef, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'date fin reservation !'}}) }}
+
+                        <div class="lis-search"> <i class="fa fa-calendar lis-primary lis-left-0"></i> </div>
+                    </div>
+                    </div>
+
+                <div class="col-12 col-sm-6">
+                    <div class="form-group">
+                        {{ form_errors(form.nombre) }}
+                        {{ form_widget(form.nombre, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Nombre de personnes !'}}) }}
+
+                        <div class="lis-search"> <i class="fa fa-users lis-primary"></i> </div>
+                    </div>
+                </div>
+
+                {{ form_widget(form.Valider, {'attr': {'class': 'btn btn-primary btn-default mt-3' }}) }}
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+
+</section>
+
+
+{% endblock %}

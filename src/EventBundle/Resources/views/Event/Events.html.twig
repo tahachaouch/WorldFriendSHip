@@ -1,0 +1,142 @@
+{% extends 'base.html.twig' %}
+{% block title %} show events {% endblock %}
+
+{% block body %}
+
+    <!--================End Banner Area =================-->
+
+    <!--================Blog grid Area =================-->
+    <br><br><br>
+
+<br><br>
+
+
+    <div class="col-md-3 left_side">
+        <div class="right_sidebar_area">
+
+            <aside class="s_widget categories_widget">
+                <div class="s_title">
+                    <h4>Categories</h4>
+                    <img src="../../../web/templates/img/widget-title-border.png" alt="">
+                </div>
+                {% for e in Event %}
+
+                <ul>
+                    <li><a href="{{ path('type_single',{'typeEvent':e.typeEvent}) }}"><img src="../../../web/templates/img/categories-list.png" alt="">{{ e.typeEvent }}</a></li>
+
+                </ul>
+                {% endfor %}
+
+            </aside>
+
+            <aside class="s_widget recent_post_widget">
+                <div class="s_title">
+                    <h4>Nearest Events</h4>
+                    <img src="../../../web/templates/img/widget-title-border.png" alt="">
+                </div>
+                {% for post in pagination %}
+
+                <div class="media">
+
+                        <div class="media-left">
+                            <img src="{{ asset('uploads/images/' ~ post.imageEvent) }}" alt="" width="70" height="70">
+                        </div>
+                        <div class="media-body">
+                            <h4>{{ post.titleEvent }}</h4>
+                            <a href="#">{{ post.startdateevent|date }}</a><br>
+                            <a href="{{ path('event_single',{'id':post.id}) }}"><font color="red">view details </font><i class="fa fa-angle-double-right"></i></a>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </aside>
+
+
+
+
+
+            <aside class="s_widget social_widget">
+                <div class="s_title">
+                    <h4>Suivez nous sur</h4>
+                    <img src="../../../web/templates/img/widget-title-border.png" alt="">
+                </div>
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+
+
+    <section class="blog_grid_area">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-9 right_side">
+
+                        <div class="row">
+                            <div class="blog_grid_inner">
+                                <aside class="s_widget search_widget">
+                                    <div class="input-group">
+                                        <form type="POST">
+                                            <input type="text" name="title" id="title" class="form-control border-top-0 border-left-0 border-right-0 rounded-0 pl-4" placeholder="Search for Events">
+                                        </form>                                            <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </span>
+                                    </div>
+                                </aside>
+                                <div id="test">
+                                {% for Events in Event %}
+
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="blog_grid_item">
+                                        <div class="blog_grid_img">
+
+                                            <img src="{{ asset('uploads/images/' ~ Events.imageEvent )}}" alt="" width="400" height="200">
+
+                                            <div class="blog_share_area">
+
+
+                                                <a href="{{ path('event_single',{'id':Events.id}) }}"><i class="fa fa-share-alt" aria-hidden="true"></i>View</a>
+                                            </div>
+
+                                        </div>
+                                        <div class="blog_grid_content">
+                                            <h3>{{ Events.titleEvent }}</h3>
+                                            <div class="blog_grid_date">
+                                                <a href="#">{{ Events.iduser }}</a>
+
+                                                <a href="#">Dating</a>
+                                            </div>
+                                            <p> {{ Events.descriptionEvent|slice(0,125) | raw   }}</p>
+
+                                            <a href="{{ path('event_single',{'id':Events.id}) }}">Read More <i class="fa fa-angle-double-right"></i></a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                {% endfor %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+    <script src="{{ asset('jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('templates/scripts/M1.js') }}"></script>
+
+
+{% endblock %}

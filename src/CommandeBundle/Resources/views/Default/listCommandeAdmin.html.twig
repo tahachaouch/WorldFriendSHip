@@ -1,0 +1,63 @@
+
+{% extends 'baseadmin.html.twig' %}
+ {% block body %}
+
+  <link href={{ asset('bootstrap/bootstrap.min.css') }} rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <div class="container-fluid" align="right">
+
+  <!-- Page Heading -->
+
+  <div align="center" class="bs-example widget-shadow">
+   <h4>Commandes</h4>
+   <table class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="80%" >
+    <thead>
+    <tr bgcolor="#fff8dc" align="center">
+     <th >N°Pro</th>
+     <th >N° Commande</th>
+     <th >Nom Client</th>
+     <th>Date</th>
+     <th><i class="lnr lnr-database"></i></th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for l in list  %}
+     <tr>
+      <td >
+       <h4>00{{ l.idPanier}}</h4>
+      </td>
+      <td >
+         <h4>00{{ l.idPanier}}</h4>
+      </td>
+      <td >{{l.username}}</td>
+      <td>
+       <h4>{{l.dateAjout|date('Y-m-d') }}</h4></td>
+
+
+      <td>
+       <a href="{{ path("commande_list_delete",{id:l.idPanier})  }}" class="btn btn-danger btn-lg"><span  class="glyphicon glyphicon-trash"></span>
+        </a></td>
+
+     </tr>
+    {% endfor %}
+
+    </tbody>
+   </table>
+  </div>
+  </div>
+  <div id="div_histogram" align="center"></div>
+  <br>
+  <div id="div_histogram2" align="center"></div>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+   {{ gc_language('fr') }}
+
+   {{ gc_draw(piechart, 'div_histogram') }}
+  </script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+   {{ gc_language('fr') }}
+
+   {{ gc_draw(piechart2, 'div_histogram2') }}
+  </script>
+ {% endblock %}

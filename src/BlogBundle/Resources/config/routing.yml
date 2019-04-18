@@ -1,0 +1,54 @@
+blog_homepage:
+    path:     /
+    defaults: { _controller: BlogBundle:Default:index }
+blog_ajout:
+    path:     /ajout
+    defaults: { _controller: BlogBundle:Article:ajout }
+blog_affiche:
+    path:     /affiche
+    defaults: { _controller: BlogBundle:Article:list}
+blog_single:
+    path:     /single/{id}
+    defaults: { _controller: BlogBundle:Article:details}
+blog_delete:
+    path:     /delete/{id}
+    defaults: { _controller: BlogBundle:Article:delete}
+blog_update:
+    path:     /update/{id}
+    defaults: { _controller: BlogBundle:Article:update}
+blog_Categories:
+    path:     /affiche
+    defaults: { _controller: BlogBundle:Article:ListCategorie}
+add_like:
+    path:     /addLike/{id}
+    defaults: { _controller: BlogBundle:Article:addLike }
+delete_like:
+    path:     /deleteLike/{id}
+    defaults: { _controller: BlogBundle:Article:deleteLike }
+App_bon_plan_article_json:
+    path:     /json/{title}
+    defaults: { _controller: BlogBundle:Article:searchAjax }
+delete_comment:
+    path:     /deleteComment/{id}
+    defaults: { _controller: BlogBundle:Article:deleteComment}
+Admin_ajout_Categories:
+    path:     /AddCategorie
+    defaults: { _controller: BlogBundle:Admin:AddCategorie}
+Admin_List_Categories:
+    path:     /ListCategorie
+    defaults: { _controller: BlogBundle:Admin:listCategories}
+categorie_single:
+    path:     /singleCategorie/{Categorie}
+    defaults: { _controller: BlogBundle:Article:SearchCategorie}
+tags_single:
+    path:     /singleTags/{Tag}
+    defaults: { _controller: BlogBundle:Article:SearchTags}
+Categorie_delete:
+    path:     /deleteCategorie/{id}
+    defaults: { _controller: BlogBundle:Admin:deleteCategorie}
+Categorie_update:
+    path:     /updateCategorie/{id}
+    defaults: { _controller: BlogBundle:Admin:updateCategorie}
+welcomeaffiche:
+    path:     /affichewelcome
+    defaults: { _controller: BlogBundle:Article:welcome}

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+ <br> <br><br><br>
+ <!--================Banner Area =================-->
+ <section  style="background-image: url('{{ asset('templates/img/1000.jpg') }}');height: 30%">
+  <div >
+   <div >
+
+   </div>
+  </div>
+ </section>
+ <!--================End Banner Area =================-->
+
+ {{ app.session.set('maVariable','test')}}
+ <br> <br> <br> <br>
+{{ form_start(form) }}
+ {{ form_row(form.titreQuestion)}}
+ {# {{ form_row(form.titreQuestion,{'value':app.session.get('maVariable')}) }}#}
+{{ form_end(form) }}
+ <br>
+ <a href="{{ path('qr_createsound')}} " style="color: black"> <button style="margin-left: 300px;background-color: red;border-color: red;font-weight: bold" > My keybord is broken !! </button> </a>
+
+
+
+
+ <br> <br> <br>
+
+
+ <br><br>
+ <span id='message'></span>
+ <br><br>
+
+ <script>
+  var message = document.querySelector('#message');
+   var test={{ app.session.get('maVariable') | json_encode | raw}};
+
+  var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+  var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+  var grammar = '#JSGF V1.0;'
+  var recognition = new SpeechRecognition();
+  var speechRecognitionList = new SpeechGrammarList();
+  speechRecognitionList.addFromString(grammar, 1);
+  recognition.grammars = speechRecognitionList;
+  recognition.lang = 'en-US';
+  recognition.interimResults = false;
+  recognition.onresult = function(event) {
+   var last = event.results.length - 1;
+   var command = event.results[last][0].transcript;
+   message.textContent = 'Voice Input: ' + command + '.';
+ //  $.ajax({url:})
+
+
+
+
+   $.ajax({
+    type: "POST",
+    url: "{{ path('qr_homepage') }}",
+    data: { variable: command },
+   });
+
+
+  };
+  recognition.onspeechend = function() {
+   recognition.stop();
+  };
+  recognition.onerror = function(event) {
+   message.textContent = 'Error occurred in recognition: ' + event.error;
+  }
+  document.querySelector('#btnGiveCommand').addEventListener('click', function(){
+   recognition.start();
+  });
+ </script>
+
+
+
+
+{#<form action="{{ path('qr_homepage') }}" method="post">
+ <input type="hidden" name="codepostal" />
+
+<button></button>
+ {% block javascripts %}
+  <script>
+   var codepostal = '75000';
+   document.querySelector('[name=codepostal]').value = codepostal;
+  </script>
+ {% endblock %}
+
+</form>#}
+
+{% endblock %}

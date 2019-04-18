@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+{% block title %} Ajouter Hebergement {% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <br><br><br>
+
+
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="registration_man">
+                <div class="col-md-1">
+                    <img src="{{ asset ('uploads/images/images.png')}}" alt="" width="500" height="500">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="registration_form_s">
+                <h4>Add Heberegement</h4>
+                <br>
+                <br>
+
+                <div class="form-group">
+
+
+                    {{ form_widget(form.nomh,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Hebergement'}})}}
+
+
+                </div>
+
+                <div class="form-group">
+
+                    {{ form_widget(form.adresseh, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Adresse hebergement'}}) }}
+
+
+                </div>
+                <div class="form-group">
+
+                    {{ form_widget(form.prixn,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Prix nuitée en DT'}})}}
+
+                </div>
+
+
+                <div class="form-group">
+
+                    {{ form_widget(form.description,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Hebergement description'}})}}
+
+                </div>
+
+
+                <div class="form-group">
+                    {{ form_widget(form.phone,{'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Phone number'}})}}
+
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <label for="example-text-input" class="col-12 col-md-3 col-form-label">Hebergemenet picture</label>
+                    <div class="col-12 col-md-9">
+                        {{ form_widget(form.DevisFile) }}
+
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="reg_chose form-group">
+
+                    {{ form_widget(form.Add_Hbergement, {'attr': {'class': 'btn form-control login_btn' }}) }}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}

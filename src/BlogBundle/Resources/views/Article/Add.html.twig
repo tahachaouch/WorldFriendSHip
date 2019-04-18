@@ -1,0 +1,82 @@
+
+
+{% extends 'base.html.twig' %}
+{% block title %} Ajouter Articles {% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <br><br><br>
+
+    {{ form_start(form) }}
+
+
+    <div class="row">
+        <div class="col-md-6.7">
+            <div class="registration_man">
+                <div class="col-md-3">
+                    <br><br>
+                   <!-- <img src="/WorldfriendshipProject/web/uploads/images/blog.jpg" alt="">-->
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+           <h1 style=" font-variant: small-caps">Ajout Article </h1>
+            <br>
+            <form>
+                <div class="form-group row">
+                  <h3 style="color: #e74c3c"><label for="example-text-input" class="col-form-label">Titre Article</label></h3>
+                    <br><br>
+                    {{ form_widget(form.titreArticle, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'saisiez le titre article'}}) }}
+
+                </div>
+                <br>
+
+                <div class="form-group row">
+                  <h3 style="color: #e74c3c">  <label for="example-text-input" class="col-form-label">Blog</label></h3>
+                    <br><br>
+
+                    {{ form_widget(form.blog, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Ecrivez contenu du blog'}}) }}
+
+                </div>
+                <div class="form-group row">
+                    <h3 style="color: #e74c3c"> <label for="example-text-input" class="col-form-label">Choisir la Catégorie d'article</label></h3>
+                    <br><br>
+
+                    {{ form_widget(form.Categorie, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Ecrivez contenu du blog'}}) }}
+
+
+                </div>
+                <br>
+                <div class="form-group row">
+                    <h3 style="color: #e74c3c"> <label for="example-text-input" class="col-form-label">#Hashtags</label></h3>
+                    <br><br>
+
+                    {{ form_widget(form.tags,{'attr': {'class': 'tag-input form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Entrez vos Hashtags  '}})}}
+
+
+                </div>
+
+                <div class="form-group row">
+                    <h3 style="color: #e74c3c">  <label for="example-text-input" class="col-form-label">Image</label></h3>
+                    <br><br>
+
+                    {{ form_widget(form.image, {'attr': {'class': 'form-control border-top-0 border-left-0 border-right-0 rounded-0','placeholder':'Image'}}) }}
+
+                </div>
+                <div class="col-12 col-sm-12">
+                    {{ form_widget(form.ajouter, {'attr': {'class': 'btn form-control login_btn' }}) }} </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+    {{ form_end(form) }}
+
+{% endblock %}

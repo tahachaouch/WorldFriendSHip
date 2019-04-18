@@ -1,0 +1,175 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="login_form_inner zoom-anim-dialog mfp-hide" id="small-dialog-sig">
+        <h4>Report User Question</h4>
+        <form>
+
+            <center>  <textarea placeholder="Reason" style="width: 300px;height: 250px"> </textarea> </center>
+            <br><br><br>
+
+          <center>  <div class="login_btn_area">
+                <button type="submit" value="LogIn" class="btn form-control login_btn">Report</button>
+
+            </div></center>
+        </form>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="login_form_inner zoom-anim-dialog mfp-hide" id="small-dialog-1" style="border-color: #2e6da4">
+        <br>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+        <img class="mfp-close" src="{{ asset ('web/templates/img/close-btn.png')}}" alt="">
+    </div>
+    <br> <br><br><br>
+    <!--================Banner Area =================-->
+    <section  style="background-image: url('{{ asset('templates/img/1000.jpg') }}');height: 30%">
+        <div >
+            <div >
+
+            </div>
+        </div>
+    </section>
+    <!--================End Banner Area =================-->
+<br> <br>
+
+    <section class="check_out_area" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="check_out_left">
+
+
+
+                            <div class="form-group col-md-12" style="border-style: solid;margin-left: 20%;border-color: lightgrey">
+                            {% for question in questions %}
+                                <textarea style="height: 60px;background-color: white;" class="form-control" rows="1" placeholder="" readonly>{{ question.titre_question}}</textarea>
+
+                            </div>
+
+                            <div class="form-group col-md-12" style="border-style: solid;margin-left: 20%;border-color: lightgrey">
+
+                                <textarea style="height: 220px;background-color: white" class="form-control" rows="1" placeholder="" readonly>{{ question.contenu_question}}</textarea>
+                            {% endfor %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <a class="popup-with-zoom-anim" href="#small-dialog-1"><button style="margin-left: 17.5%;font-weight: bold" class="btn btn-primary" > Modifier</button> </a> &nbsp;
+    {% for question in questions %}
+    <a href="{{ path('qr_supprimerquestion',{id:question.id_question})}}">   <button style="margin-left: 17.5%;font-weight: bold" class="btn btn-danger" > Supprimer</button> </a>
+
+    {% endfor %}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    {% for question in questions%}    {% if usrs!=question.id %} <a class="popup-with-zoom-anim" href="#small-dialog-sig" >  <img src="{{ asset('templates/img/signaler.png') }}" style="height: 8%;width: 3%"  align=""> </a> {% endif %} {% endfor %}
+    <br> <br> <br> <br> <br>
+    {% for nbr in nbrs %}
+
+{%   if nbr.nr <2 %}
+
+    <section class="testimonials_area">
+        <div class="container">
+            <div class="welcome_title">
+                <h3>Comments</h3>
+                <img src="img/w-title-b.png" alt="">
+            </div>
+            <div class="row" >
+                {% for reponse in reponses %}
+                    <div class="item">
+                        <div class="col-md-9">
+                            <div class="row">
+
+                                <div class="test_left_content" style="border-style: groove">
+                                    <p>  {{ reponse.contenu_reponse }} </p>
+                                    <br>
+                                    <button></button> &nbsp&nbsp <button></button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div></div>
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="test_man">
+                                    <h4>{{ reponse.username }}</h4>
+                                    <h5>WorldFriendship Member </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+
+{%   else %}
+
+
+    <!--================Testimonials Area =================-->
+    <section class="testimonials_area">
+        <div class="container">
+            <div class="welcome_title">
+                <h3>Comments</h3>
+                <img src="img/w-title-b.png" alt="">
+            </div>
+            <div class="testimonials_slider">
+                {% for reponse in reponses %}
+                    {% for question in questions %}
+                <div class="item">
+                    <div class="col-md-9">
+                        <div class="row">
+
+                            <div class="test_left_content" >
+                                <p style="font-weight: bold"> <h3>  {{ reponse.contenu_reponse }}</h3> </p>
+                                <br>
+                                <table><tr>
+                                        <td >  <a  href="{{ path('qr_ajouterrate',{id:reponse.id_question,idr:reponse.id_reponse,idu:question.id})}}"  >  <img src="{{ asset('templates/img/heart.png') }}" style="height: 25%;width: 25%" > </a> &nbsp;&nbsp; {{ reponse.somme_r }}  </td>  <td > <a  href="{{ path('qr_ajouterunrate',{id:reponse.id_question,idr:reponse.id_reponse,idu:question.id})}}"  ><img src="{{ asset('templates/img/dislike.png') }}" style="height: 50%;width: 50%" ></a>  &nbsp;&nbsp; {{ reponse.somme_ur }}</td>
+                                    </tr>    </table>
+
+                            </div>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="test_man">
+                                <h4>{{ reponse.username }}</h4>
+                                <h5>WorldFriendship Member </h5>
+                                <br>
+                                &nbsp;&nbsp;
+                         </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+    <!--================End Testimonials Area =================-->
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

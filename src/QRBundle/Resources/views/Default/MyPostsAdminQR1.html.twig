@@ -1,0 +1,163 @@
+{% extends 'baseadmin.html.twig' %}
+{% block body %}
+
+
+
+
+
+
+
+
+
+
+
+
+    <br> <br><br><br>
+    <!--================Banner Area =================-->
+    <section  style="background-image: url('{{ asset('templates/img/1000.jpg') }}');height: 30%">
+        <div >
+            <div >
+
+            </div>
+        </div>
+    </section>
+    <!--================End Banner Area =================-->
+    <br> <br>
+
+    <section class="check_out_area" >
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="check_out_left">
+
+
+
+                            <div class="form-group col-md-12" style="border-style: solid;margin-left: 20%;border-color: lightgrey">
+                                {% for question in questions %}
+                                <textarea style="height: 60px;background-color: white;color: black;width: 100%;"  rows="1" placeholder="" readonly>{{ question.titre_question}}</textarea>
+
+                            </div>
+
+                            <div class="form-group col-md-12" style="border-style: solid;margin-left: 20%;border-color: lightgrey">
+
+                                <textarea style="height: 220px;background-color: white;width: 100%;"  rows="1" placeholder="" readonly>{{ question.contenu_question}}</textarea>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    {% for question in questions %}
+        {% if usrs!=question.id %}    <a class="popup-with-zoom-anim" href="#small-dialog-ajoutercomment"><button style="margin-left: 17.5%;font-weight: bold" class="btn btn-primary" > Add  Comment</button> </a> {% endif %}
+    {% endfor %}
+    <br> <br> <br> <br> <br>
+    {% for nbr in nbrs %}
+
+        {%   if nbr.nr <2 %}
+
+
+            <section class="testimonials_area">
+                <div class="container">
+
+                    <div class="welcome_title">
+
+                        <h3>Comments</h3>
+                        <img src="img/w-title-b.png" alt="">
+                    </div>
+                    <div class="row" >
+                        {% for reponse in reponses %}
+                            <div class="item">
+                            <div class="col-md-9">
+                            <div class="row">
+
+                            <div class="test_left_content" style="border-style: groove;">
+                            <h4>  {{ reponse.contenu_reponse }} </h4>
+                            {% for question in questions %}
+                                <br>
+                                <table><tr>
+                                        <td >   <img src="{{ asset('templates/img/heart.png') }}" style="height: 15%;width: 15%" >  &nbsp;&nbsp; {{ reponse.somme_r }}  </td>  <td > <img src="{{ asset('templates/img/dislike.png') }}" style="height: 30%;width: 30%" > &nbsp;&nbsp; {{ reponse.somme_ur }}</td>
+                                    </tr>    </table>
+                                </div>
+
+                                </div>
+                                </div>
+                                <div></div>
+                                <div class="col-md-3">
+                                    <div class="row">
+                                        <div class="test_man">
+                                            <h4>{{ reponse.username }}</h4>
+                                            <h5>WorldFriendship Member </h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+
+
+        {%   else %}
+
+
+            <!--================Testimonials Area =================-->
+            <section class="testimonials_area">
+                <div class="container">
+                    <div class="welcome_title">
+                        <h3>Comments</h3>
+                        <img src="img/w-title-b.png" alt="">
+                    </div>
+                    <div class="testimonials_slider">
+                        {% for reponse in reponses %}
+                            {% for question in questions %}
+                                <div class="item">
+                                <div class="col-md-9">
+                                <div class="row">
+
+                                <div class="test_left_content" >
+                                    <p style="font-weight: bold">   {{ reponse.contenu_reponse }} </p>
+                                    <br>
+                                    <table><tr>
+                                            <td >    <img src="{{ asset('templates/img/heart.png') }}" style="height: 10%;width: 10%" > &nbsp;&nbsp; {{ reponse.somme_r }}  </td>  <td > <img src="{{ asset('templates/img/dislike.png') }}" style="height: 25%;width: 25%" > &nbsp;&nbsp; {{ reponse.somme_ur }}</td>
+                                        </tr>    </table>
+
+                                </div>
+                            {% endfor %}
+                            </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="row">
+                                    <div class="test_man">
+                                        <h4>{{ reponse.username }}</h4>
+                                        <h5>WorldFriendship Member </h5>
+
+                                        <br>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </section>
+            <!--================End Testimonials Area =================-->
+        {% endif %}
+    {% endfor %}
+
+{% endblock %}

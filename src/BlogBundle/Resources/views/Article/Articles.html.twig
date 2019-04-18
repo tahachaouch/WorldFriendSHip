@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+{% block title %} Ajouter Articles {% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <br>
+
+
+<!--
+    <section>
+        <img src="/WorldfriendshipProject/web/uploads/images/oo.jpg" alt="">    </section>-->
+    <!--================End Banner Area =================-->
+
+    <!--================Blog grid Area =================-->
+
+    <div class="col-md-3 left_side">
+
+        <div class="right_sidebar_area">
+            <br><br>
+            <aside class="s_widget categories_widget">
+            <div class="s_title">
+                <h4>Categories</h4>
+                <img src="../../../web/templates/img/widget-title-border.png" alt="">
+            </div>
+            <ul>
+                {% for Cat in Categorie %}
+                <li><a href="{{ path('categorie_single',{'Categorie':Cat.id}) }}"><img src="../../../web/templates/img/categories-list.png" alt="">{{ Cat.categorie }}</a></li>
+                {% endfor %}
+            </ul>
+
+            </aside>
+            <aside class="s_widget recent_post_widget">
+                <div class="s_title">
+                    <h4>Recent Posts</h4>
+                    <img src="../../../web/templates/img/widget-title-border.png" alt="">
+                </div>
+                {% for post in pagination %}
+
+                    <div class="media">
+
+                        <div class="media-left">
+                            <img src="{{ asset('uploads/images/' ~ post.image) }}" alt="" width="70" height="70">
+                        </div>
+                        <div class="media-body">
+                            <h4>{{ post.titreArticle }}</h4>
+                            <a href="#">{{ post.cree|date }}</a><br>
+                            <a href="{{ path('blog_single',{'id':post.id}) }}"><font color="red">view details </font><i class="fa fa-angle-double-right"></i></a>
+
+                        </div>
+
+                    </div>
+                {% endfor %}
+
+            </aside>
+            <ul class="pagination list-inline mb-0 text-center text-uppercase lis-f-14 justify-content-center my-4">
+
+                <li class="p-1 page-item d-none d-sm-inline-block"> {{ knp_pagination_render(pagination) }}</li>
+            </ul>
+            <aside class="s_widget tags_widget">
+                <div class="s_title">
+                    <h4>Tags</h4>
+                    <img src="../../../web/templates/img/widget-title-border.png" alt="">
+                </div>
+                <ul> {% for Cat in Tag %}
+
+
+                    <li><a href="{{ path('tags_single',{'Tag':Cat.id}) }}">     {{ Cat.libelle }}</a></li>
+                    {% endfor %}
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+
+    <section class="blog_grid_area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-9 right_side">
+                    <div class="row">
+                        <div class="blog_grid_inner">
+                            <div class="col-12 col-md-12">
+
+
+                                    <aside class="s_widget search_widget">
+                                        <div class="input-group">
+                                            <form type="POST">
+                                                <input type="text" name="title" id="title" class="form-control border-top-0 border-left-0 border-right-0 rounded-0 pl-4" placeholder="What are you looking for?">
+                                            </form>                                            <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </span>
+                                        </div>
+                                    </aside>
+
+
+                            </div>
+                            <div id="test">
+                            {% for Article in Article %}
+                            <div class="col-md-4 col-sm-6">
+                                <div class="blog_grid_item">
+                                    <div class="blog_grid_img">
+
+                                        <img src="/WorldfriendshipProject/web/uploads/images/{{ Article.image }}" alt="" width="400" height="200">
+                                        <div class="blog_share_area">
+
+                                            <a href="#"><i class="mdi mdi-comment-multiple-outline"></i>{{ Article.nbreComment }}</a>
+
+                                            <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>{{ Article.nbreLike }}</a>
+                                            <a href="{{ path('blog_single',{'id':Article.id}) }}"><i class="fa fa-share-alt" aria-hidden="true"></i>View</a>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="blog_grid_content">
+                                        <h3>{{ Article.titreArticle }}</h3>
+                                        <div class="blog_grid_date">
+                                            <a href="#">{{ Article.iduser}} </a>
+                                            <a href="#">{{ Article.cree|date('d/m/Y') }}</a>
+
+                                        </div>
+                                        <p>{{ Article.blog|slice(0,125) | raw }} </p>
+
+                                        <a href="{{ path('blog_single',{'id':Article.id}) }}">Read More <i class="fa fa-angle-double-right"></i></a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+    <script src="{{ asset('jquery-3.3.1.min.js') }}"></script>
+
+    <script src="{{ asset('templates/scripts/M.js') }}"></script>
+
+{% endblock %}

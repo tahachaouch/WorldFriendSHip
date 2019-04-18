@@ -1,0 +1,28 @@
+
+
+{% extends 'baseadmin.html.twig' %}
+{% block title %} Ajouter Articles {% endblock %}
+
+{% block body %}
+    <br><br><br>
+    <br><br><br>
+
+
+
+
+<div class="container"><table border="5" class="table table-bordered table-hover"><TR>
+  <Tr>      <td><H1>Catégories des articles</H1>
+
+ </Tr>
+
+    {% for C in Categorie %}
+            <TD>{{C.Categorie}}</TD>
+        <td><a href="{{ path('Categorie_delete',{'id':C.id})  }}" class="btn btn-danger">Supprimer</a></td>
+        <td><a href="{{ path('Categorie_update',{'id':C.id})  }}" class="btn btn-danger">Editer</a></td>
+
+        </TR>
+    {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
